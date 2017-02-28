@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228184949) do
+ActiveRecord::Schema.define(version: 20170228223317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "score",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_games_on_user_id", using: :btree
+  end
 
   create_table "tracks", force: :cascade do |t|
     t.string   "artist"
@@ -21,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170228184949) do
     t.string   "preview_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "album_image"
+    t.string   "album_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +62,5 @@ ActiveRecord::Schema.define(version: 20170228184949) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
+  add_foreign_key "games", "users"
 end
