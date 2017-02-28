@@ -7,6 +7,8 @@ end
 
 gem 'sass'
 gem 'bower-rails'
+gem 'angular-rails-templates'
+gem 'httparty'
 gem "foreman"
 
 group :production, :staging do
