@@ -20,5 +20,7 @@ track_ids.each do |id|
   track = result['name']
   preview_url = result['preview_url']
 
-  Track.create(artist: artist, track: track, preview_url: preview_url)
+  unless preview_url.nil?
+    Track.create(artist: artist, track: track, preview_url: preview_url)
+  end
 end
