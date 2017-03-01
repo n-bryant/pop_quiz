@@ -1,0 +1,59 @@
+<div class="profile-container is-flex">
+  <main class="user-profile">
+    <div class="user-image-plus-name is-flex">
+      <img src="http://placehold.it/150x120" alt="placeholder square">
+      <h2 class="container-heading">This is Your Name</h2>
+    </div>
+    <button class="lets-play">play</button>
+    <div class="profile-score-board">
+      <h3> Your Top Scores</h3>
+      <table class="user-scores">
+        <tr>
+          <td class="cell">03/01/2017 {{usergame.date}}</td>
+          <td class="cell">Music Game {{user.game.category}}</td>
+          <td class="cell">997 {{user.game.score}}</td>
+        </tr>
+        <tr>
+          <td class="cell">03/01/2017 {{usergame.date}}</td>
+          <td class="cell">Quote Game {{user.game.category}}</td>
+          <td class="cell">550 {{user.game.score}}</td>
+        </tr>
+        <tr>
+          <td class="cell">02/28/2017 {{usergame.date}}</td>
+          <td class="cell">Game Game {{user.game.category}}</td>
+          <td class="cell">790 {{user.game.score}}</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+  <aside class="social-aside">
+    <h2 class="container-heading">Community</h2>
+    <div class="social-container">
+      <p>Friend1 {{user.friend}}</p>
+      <ul>
+        <li>Status : Online{{user.friend.online}}</li>
+        <li>Last Login {{user.friend}} : 02.27.17 {{user.friend.lastLogin}}</li>
+        <li>Top Score {{user.friend.score}} : 885{{user.friend.score}}</li>
+      </ul>
+      <input type=textarea placeholder="Send a message">
+    </div>
+    <div class="social-container">
+      <p>Friend1 {{user.friend}}</p>
+      <ul>
+        <li>Status : Online{{user.friend.online}}</li>
+        <li>Last Login {{user.friend}} : 02.27.17 {{user.friend.lastLogin}}</li>
+        <li>Top Score {{user.friend.score}} : 885{{user.friend.score}}</li>
+      </ul>
+      <input type=textarea placeholder="Send a message">
+    </div>
+    <div class="social-container">
+      <p>Friend1 {{user.friend}}</p>
+      <ul>
+        <li>Status : Online{{user.friend.online}}</li>
+        <li>Last Login {{user.friend}} : 02.27.17 {{user.friend.lastLogin}}</li>
+        <li>Top Score {{user.friend.score}} : 885{{user.friend.score}}</li>
+      </ul>
+      <input type=textarea placeholder="Send a message">
+    </div>
+  </aside>
+</div>

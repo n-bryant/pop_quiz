@@ -1,0 +1,41 @@
+.leaderboard {
+  width: 100%;
+}
+
+.game-score-board {
+  animation: 1s animateBorderOne ease infinite;
+  outline: 6px dashed $orangeHi;
+  box-shadow: 0 0 0 6px $slate;
+  margin: 2% auto;
+  padding: 2%;
+  width: 90%;
+
+  @keyframes animateBorderOne {
+    to {
+      outline-color: $slate;
+      box-shadow: 0 0 0 10px $orangeHi;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: $orangeHi;
+  }
+
+  .user-scores {
+    margin: 1% auto;
+    text-align: center;
+    width: 80%;
+    color: $light;
+
+    .rank {
+      width: 2%;
+    }
+
+    .cell {
+      line-height: 2;
+      width:33%;
+    }
+  }
+}
