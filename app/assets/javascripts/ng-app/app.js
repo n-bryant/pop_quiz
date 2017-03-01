@@ -11,7 +11,7 @@
       abstract: true,
       template: '<ui-view></ui-view>'
     }).state('GameParent.login', {
-      url: 'login',
+      url: '',
       templateUrl: 'login.html',
       controller: 'LoginController as loginCtrl'
     });
