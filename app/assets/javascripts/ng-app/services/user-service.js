@@ -4,22 +4,27 @@
   ng.module('GameApp').service('UserService', ['$q', '$state', '$http', 'DataService', function($q, $state, $http, DataService) {
     this.activeUser;
 
-    function validateUser(user) {
+    function validateUser(user, isNewUser) {
       console.log(user);
-      $q.when(DataService.logIn(user)).then((response) => {
-        console.log(response);
-        // if request is good
-          // this.activeUser = get user by user.id
-      }).catch((error) => {
-        console.log(error);
-        // else
+      if (isNewUser) {
+        $q.when(DataService.createUser(user)).then((response) => {
+          console.log(response);
+          // this.activeUser = response.data.data;
+          // $state.go('GameParent.profile');
+        }).catch((error) => {
+          console.log(error);
           // present validation message to user
-      });
-    }
-
-    function getUser() {
-      // make data request for user information
-      // return user data that matches argument
+        });
+      } else {
+        $q.when(DataService.logIn(user)).then((response) => {
+          console.log(response);
+          this.activeUser = response.data.data;
+          $state.go('GameParent.profile');
+        }).catch((error) => {
+          // present validation message to user
+          // this.unauthorized = error.data.errors[0];
+        });
+      }
     }
 
     return {
