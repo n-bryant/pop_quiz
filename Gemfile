@@ -13,6 +13,7 @@ gem 'httparty'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem "foreman"
+gem "active_model_serializers"
 
 group :production, :staging do
   gem "rails_12factor"
