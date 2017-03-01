@@ -5,7 +5,7 @@
     </div>
     <div class="login-form-container">
       <form name="loginForm" ng-submit="authenticate()" class="login-form is-flex" novalidate>
-        <label for="username"><input type="text" name="username" ng-model="username" ng-required="true" placeholder="username"></label>
+        <label for="username"><input type="email" name="username" ng-model="username" ng-required="true" placeholder="email"></label>
         <label for="password"><input type="password" name="password" ng-model="password" ng-required="true" placeholder="password"></label>
         <button class="login-submit" ng-disabled="loginForm.$invalid">Log In</button>
       </form>
