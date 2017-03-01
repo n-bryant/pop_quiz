@@ -22,6 +22,14 @@
       url: 'pick-category',
       templateUrl: 'pick-category.html',
       controller: 'PickCategoryController as pickCatCtrl'
+    }).state('GameParent.profile', {
+      url: 'profile',
+      templateUrl: 'profile.html',
+      // controller: 'ProfileController as profileCtrl'
+    }).state('GameParent.leaderboard', {
+      url: 'leaderboard',
+      templateUrl: 'leaderboard.html',
+      // controller: 'LeaderController as leaderCtrl'
     });
   });
 })(angular);
