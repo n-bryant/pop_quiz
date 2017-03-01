@@ -1,0 +1,87 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.attempts {
+  float: left;
+  margin-left: 10%;
+}
+
+.correct {
+  float: right;
+  margin-right: 10%;
+}
+.song-container {
+  margin: 2% auto;
+
+  width: 60%;
+
+  h1 {
+    color: $orangeHi;
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+.song-bar {
+    border: 3px solid $light;
+    border-radius: 20px;
+    height: 40px;
+    margin: 2% auto;
+    width: 70%;
+
+    .disappearing-bar {
+      animation: move 30s linear;
+      background-color: $light;
+      border-radius: 20px;
+      height: 100%;
+      width: 99%;
+    }
+
+    @keyframes move {
+      0% {
+        width: 99%;
+      }
+      100% {
+        width: 5%;
+      }
+    }
+  }
+}
+
+.user-guess {
+
+  form {
+    flex-direction: column;
+    margin: 2% auto;
+    width: 70%;
+
+    .text-guess, .guess-button {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid $light;
+      color: $light;
+      font-size: 2rem;
+      margin: 2% auto;
+      padding: 2%;
+      width: 60%;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $orangeHi;
+        box-shadow: none;
+      }
+    }
+
+    .guess-button {
+      background-color: $orangeHi;
+      border: none;
+      border-radius: 25px;
+      color: $slate;
+      font-size: 1rem;
+      margin: 2% auto;
+      width: 20%;
+    }
+
+  }
+}

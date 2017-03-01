@@ -72,8 +72,11 @@
 
 
     .cell {
+      display: inline;
+      list-style-type: none;
       line-height: 2;
-      width:33%;
+      margin: 5%;
+      width: 33%;
     }
   }
 }

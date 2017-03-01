@@ -25,11 +25,15 @@
     }).state('GameParent.profile', {
       url: 'profile',
       templateUrl: 'profile.html',
-      // controller: 'ProfileController as profileCtrl'
+      controller: 'ProfileController as profileCtrl'
+    }).state('GameParent.gameplay', {
+      url: 'gameplay',
+      templateUrl: 'gameplay.html',
+      controller: 'GameplayController as gameplayCtrl'
     }).state('GameParent.leaderboard', {
       url: 'leaderboard',
       templateUrl: 'leaderboard.html',
-      // controller: 'LeaderController as leaderCtrl'
+      controller: 'LeaderController as leaderCtrl'
     });
   }]);
 })(angular);

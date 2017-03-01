@@ -1,0 +1,22 @@
+<main class="pick-category-wrapper wrapper">
+  <section class="song-container">
+    <h1>Guess this song!</h1>
+    <div class="song-bar">
+      <div class="disappearing-bar"></div>
+    </div>
+  </section>
+  <aside class="attempts" ng-class="{active: rules1}">
+    <p>_____guesses so far</p>
+  </aside>
+  <aside class="correct" ng-class="{active: rules2}">
+    <p>______ correct guesses</p>
+  </aside>
+  <section class="guess-container is-centered ">
+    <div class="user-guess">
+      <form class="is-flex">
+        <input class="text-guess" type=text placeholder="Make a Guess">
+        <input class="guess-button" type=submit value="Guess!">
+      </form>
+    </div>
+  </section>
+</main>

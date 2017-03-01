@@ -3,19 +3,25 @@
       <h3>{{this.game}}Music Top Scores</h3>
       <table class="user-scores">
         <tr>
-          <td class="rank">#1 {{game.user.rank}}
+          <td class="rank" ng-click="leaderCtrl.updateTable('rank')">Rank</td>
+          <td class="cell" ng-click="leaderCtrl.updateTable('date')">Date</td>
+          <td class="cell" ng-click="leaderCtrl.updateTable('user')">User</td>
+          <td class="cell" ng-click="leaderCtrl.updateTable('score')">Score</td>
+        </tr>
+        <tr>
+          <td class="rank">#1 {{game.user.rank}}</td>
           <td class="cell">03/01/2017 {{usergame.date}}</td>
           <td class="cell">User Name {{user.game.category}}</td>
           <td class="cell">997 {{user.game.score}}</td>
         </tr>
         <tr>
-          <td class="rank">#1 {{game.user.rank}}
+          <td class="rank">#1 {{game.user.rank}}</td>
           <td class="cell">03/01/2017 {{usergame.date}}</td>
           <td class="cell">User Name {{user.game.category}}</td>
           <td class="cell">550 {{user.game.score}}</td>
         </tr>
         <tr>
-          <td class="rank">#1 {{game.user.rank}}
+          <td class="rank">#1 {{game.user.rank}}</td>
           <td class="cell">02/28/2017 {{usergame.date}}</td>
           <td class="cell">User Name {{user.game.category}}</td>
           <td class="cell">790 {{user.game.score}}</td>

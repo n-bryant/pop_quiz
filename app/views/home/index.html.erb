@@ -2,11 +2,11 @@
 
   <nav class="header-nav is-flex">
     <!-- ng-click="loginCtrl.navigate(leaderboard)" create method in controller-->
-    <button class="nav-button">Home</button>
+    <button class="nav-button" ui-sref="GameParent.login">Home</button>
     <!-- ng-click="loginCtrl.navigate(profile)" -->
-    <button class="nav-button" ng-click="">Profile</button>
+    <button class="nav-button" ui-sref="GameParent.profile">Profile</button>
     <!-- ng-click="loginCtrl.navigate(leaderboard)" -->
-    <button class="nav-button">Leaderboard</button>
+    <button class="nav-button" ui-sref="GameParent.leaderboard">Leaderboard</button>
   </nav>
   <h1>Game Title</h1>
 </header>
