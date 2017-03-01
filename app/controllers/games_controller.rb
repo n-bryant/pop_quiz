@@ -1,4 +1,4 @@
-class GameController < ApplicationController
+class GamesController < ApplicationController
   before_action :set_game, only: [:show]
 
   def index
