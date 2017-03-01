@@ -1,7 +1,7 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').service('UserService', function($q, $state) {
+  ng.module('GameApp').service('UserService', ['$q', '$state', function($q, $state) {
     this.activeUser;
 
     function validateUser(user) {
@@ -21,5 +21,5 @@
     return {
       validate: validateUser
     };
-  });
+  }]);
 })(angular);

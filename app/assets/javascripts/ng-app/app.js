@@ -3,7 +3,7 @@
 
   ng.module('GameApp', ['ui.router', 'templates']);
 
-  ng.module('GameApp').config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  ng.module('GameApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('GameParent', {
@@ -31,5 +31,5 @@
       templateUrl: 'leaderboard.html',
       // controller: 'LeaderController as leaderCtrl'
     });
-  });
+  }]);
 })(angular);
