@@ -2,6 +2,9 @@
   width: 100%;
   float: row;
   justify-content: center;
+  background-image: url('https://www.transparenttextures.com/patterns/bright-squares.png');
+  background-color: #fafafa;
+
 
   .user-profile {
     // background-color: blue;
@@ -19,9 +22,11 @@
 
 .user-image-plus-name {
   align-items: center;
+  background-color: rgba(0, 0, 0, .1);
   justify-content: center;
+  margin: 2%;
   padding: 1% 5%;
-  width: 80%;
+  width: 100%;
 
   img {
     max-width: 150px;
@@ -29,6 +34,7 @@
   }
 
   .container-heading {
+    color: #000;
     font-family: $primaryFont;
     font-size: 2rem;
     margin: 2% auto;
@@ -46,6 +52,7 @@
 }
 
 .profile-score-board {
+  background-color: rgba(0, 0, 0, .1);
   border: 3px dashed $orangeHi;
   margin: 2%;
   padding: 2%;
@@ -58,19 +65,24 @@
   }
 
   .user-scores {
+    color: #000;
     margin: 1% auto;
     text-align: center;
     width: 100%;
-    color: $light;
+
 
     .cell {
+      display: inline;
+      list-style-type: none;
       line-height: 2;
-      width:33%;
+      margin: 5%;
+      width: 33%;
     }
   }
 }
 
 .social-aside {
+    background-color: rgba(0, 0, 0, .1);
   .container-heading {
     border-bottom: 1px dashed $orangeHi;
     color: $orangeHi;
