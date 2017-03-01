@@ -1,7 +1,93 @@
-.login-container {
-  
-  .login-form {
-    border-radius: .5rem;
-    flex-direction: column;
+body {
+  background: linear-gradient(to top, #293f50, #648880);
+}
+
+.login-container, .acct-create-container {
+
+  margin: 5rem auto;
+  max-width: 600px;
+  min-width: 450px;
+  width: 40%;
+
+  .login-submit, .signup-submit, .create-acct-btn, input {
+    animation: hueShift 10s infinite linear;
+  }
+
+  .login-title-container, .signup-title-container {
+    padding-top: 2rem;
+
+    h2 {
+      font: 300 2rem $primaryFont;
+    }
+  }
+}
+
+.login-form-container, .signup-form-container {
+  padding: 0 1rem 2rem 1rem;
+  position: relative;
+}
+
+.login-form, .signup-form{
+  align-items: center;
+  border-radius: .5rem;
+  flex-direction: column;
+  padding: 2rem;
+
+  label {
+    margin-bottom: 1rem;
+    width: 85%;
+
+    input {
+      background: rgba(0, 0, 0, .15);
+      border: 2px solid rgba(0,0,0,0);
+      color: $light;
+      font: 1.5rem $primaryFont;
+      padding: .5rem;
+      width: 100%;
+
+      &:hover {
+        border: 2px solid $light;
+      }
+
+      &:focus {
+        outline: none;
+        border: 2px solid $orange;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .login-submit, .signup-submit {
+    background: none;
+    border: 2px solid $orange;
+    color: $orange;
+    cursor: pointer;
+    font: 1.5rem $primaryFont;
+    padding: 1rem;
+    width: 85%;
+
+    &:hover {
+      border: 2px solid $light;
+      color: $light;
+    }
+
+    &:active {
+      color: $orange;
+    }
+  }
+}
+
+.create-acct-btn {
+  color: $orange;
+  cursor: pointer;
+  background: none;
+  border: none;
+  bottom: 1rem;
+  font: .75rem $primaryFont;
+  position: absolute;
+  right: 2rem;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

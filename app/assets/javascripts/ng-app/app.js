@@ -14,6 +14,10 @@
       url: '',
       templateUrl: 'login.html',
       controller: 'LoginController as loginCtrl'
-    });
+    }).state('GameParent.signup', {
+      url: 'signup',
+      templateUrl: 'signup.html',
+      controller: 'SignupController as signupCtrl'
+    });;
   });
 })(angular);

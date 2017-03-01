@@ -10,7 +10,7 @@ header {
     color: $orange;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-animation: hueShift 60s infinite linear;
+    -webkit-animation: hueShift 10s infinite linear;
     font: 800 4rem $primaryFont;
   }
 }
