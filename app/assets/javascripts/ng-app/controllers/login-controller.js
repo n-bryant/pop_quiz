@@ -7,7 +7,6 @@
         username: this.username,
         password: this.password
       };
-      console.log(user);
       UserService.validate(user);
     };
   }]);
