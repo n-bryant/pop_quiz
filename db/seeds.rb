@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'httparty'
+require 'byebug'
 
 url = 'https://api.spotify.com/v1/tracks/'
 track_ids = ['4vb4mFvYsr2h6enhjJsq9Y','3dhjNA0jGA8vHBQ1VdD6vV',
@@ -18,9 +19,11 @@ track_ids.each do |id|
   result = HTTParty.get("#{url}#{id}")
   artist = result['artists'].first['name']
   track = result['name']
+  album_name = result['album']['name']
+  album_image = result['album']['images'].first['url']
   preview_url = result['preview_url']
 
   unless preview_url.nil?
-    Track.create(artist: artist, track: track, preview_url: preview_url)
+    Track.create(artist: artist, track: track, album_name: album_name, album_image: album_image, preview_url: preview_url)
   end
 end
