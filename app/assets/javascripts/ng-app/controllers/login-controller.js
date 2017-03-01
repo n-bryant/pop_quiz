@@ -1,14 +1,13 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').controller('LoginController', function(UserService) {
-    this.authenticate = function(username, password) {
+  ng.module('GameApp').controller('LoginController', ['$scope', 'UserService', function($scope, UserService) {
+    $scope.authenticate = function() {
       const user = {
-        username: username,
-        password: password
+        username: this.username,
+        password: this.password
       };
-      console.log(user);
       UserService.validate(user);
     };
-  });
+  }]);
 })(angular);
