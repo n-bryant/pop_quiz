@@ -1,10 +1,14 @@
 <header>
-  <h1>Game Title</h1>
-  <nav>
-    <ul>
-      <li></li>
-    </ul>
+
+  <nav class="header-nav is-flex">
+    <!-- ng-click="loginCtrl.navigate(leaderboard)" create method in controller-->
+    <button class="nav-button">Home</button>
+    <!-- ng-click="loginCtrl.navigate(profile)" -->
+    <button class="nav-button" ng-click="">Profile</button>
+    <!-- ng-click="loginCtrl.navigate(leaderboard)" -->
+    <button class="nav-button">Leaderboard</button>
   </nav>
+  <h1>Game Title</h1>
 </header>
 
 <ui-view><ui-view>

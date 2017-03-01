@@ -1,7 +1,15 @@
+html {
+  height: 100%;
+}
+
 body {
-  background: $slate;
+  background: rgb(38,38,38);
   color: $light;
   font: 16px/1.6 $primaryFont;
+}
+
+main {
+  height: 100vh;
 }
 
 header {
@@ -10,7 +18,7 @@ header {
     color: $orange;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-animation: hueShift 60s infinite linear;
+    -webkit-animation: hueShift 10s infinite linear;
     font: 800 4rem $primaryFont;
   }
 }
