@@ -1,7 +1,15 @@
+html {
+  height: 100%;
+}
+
 body {
-  background: $slate;
+  background: rgb(38,38,38);
   color: $light;
   font: 16px/1.6 $primaryFont;
+}
+
+main {
+  height: 100vh;
 }
 
 header {

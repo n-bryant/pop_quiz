@@ -1,12 +1,15 @@
-body {
-  background: linear-gradient(to top, #293f50, #648880);
+.login-wrapper, .acct-create-wrapper {
+  background-image: -webkit-linear-gradient(top,#648880,#2196F3);
+  background-image: linear-gradient(to bottom,#648880,#2196F3);
+  background-color: #648880;
 }
 
 .login-container, .acct-create-container {
 
-  margin: 5rem auto;
+  margin: 0 auto;
   max-width: 600px;
   min-width: 450px;
+  padding-top: 3rem;
   width: 40%;
 
   .login-submit, .signup-submit, .create-acct-btn, input {

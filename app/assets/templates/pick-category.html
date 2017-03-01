@@ -1,0 +1,25 @@
+<main class="pick-category-wrapper">
+  <section class="categories-container">
+    <ul class="options-list is-flex">
+      <!-- fill out lis with ng-repeat -->
+      <li class="category-item is-centered">
+        <div class="category music">music</div>
+      </li>
+      <li class="category-item is-centered">
+        <div class="category random">random</div>
+      </li>
+    </ul>
+  </section>
+  <section class="rules-container is-centered">
+    <div class="selector-container is-flex">
+      <div class="rules-selector" ng-class="{active: rules1}" ng-mouseover="rules1 = true; rules2 = false"></div>
+      <div class="rules-selector" ng-class="{active: rules2}" ng-mouseover="rules2 = true; rules1 = false"></div>
+    </div>
+    <aside class="rules first" ng-class="{active: rules1}">
+      <p>This is a game that will test your knowledge of popular music, quotes, and historical facts.</p>
+    </aside>
+    <aside class="rules second" ng-class="{active: rules2}">
+      <p>Choose a category to get started, or click random if you are indecisive.</p>
+    </aside>
+  </section>
+</main>

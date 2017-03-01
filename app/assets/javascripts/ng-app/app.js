@@ -9,7 +9,7 @@
     $stateProvider.state('GameParent', {
       url: '/',
       abstract: true,
-      template: '<ui-view></ui-view>'
+      // template: '<ui-view></ui-view>'
     }).state('GameParent.login', {
       url: '',
       templateUrl: 'login.html',
@@ -18,6 +18,10 @@
       url: 'signup',
       templateUrl: 'signup.html',
       controller: 'SignupController as signupCtrl'
-    });;
+    }).state('GameParent.pickCategory', {
+      url: 'pick-category',
+      templateUrl: 'pick-category.html',
+      controller: 'PickCategoryController as pickCatCtrl'
+    });
   });
 })(angular);
