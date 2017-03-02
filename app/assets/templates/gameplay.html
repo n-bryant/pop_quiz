@@ -1,19 +1,19 @@
 <main class="pick-category-wrapper wrapper">
   <section class="song-container">
-    <h1>Guess this song!</h1>
+    <h1>Guess the Artist!</h1>
     <div class="song-bar">
       <div class="disappearing-bar"></div>
     </div>
   </section>
-  <aside class="attempts" ng-class="{active: rules1}">
+  <aside class="attempts">
     <p>_____guesses so far</p>
   </aside>
-  <aside class="correct" ng-class="{active: rules2}">
+  <aside class="correct">
     <p>______ correct guesses</p>
   </aside>
   <section class="guess-container is-centered ">
     <div class="user-guess">
-      <form class="is-flex">
+      <form class="is-flex" ng-submit="guess($value)">
         <input class="text-guess" type=text placeholder="Make a Guess">
         <input class="guess-button" type=submit value="Guess!">
       </form>
