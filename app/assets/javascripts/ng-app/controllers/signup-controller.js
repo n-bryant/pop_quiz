@@ -9,6 +9,7 @@
         $scope.pwdsNotMatched = false;
         const user = {
           username: this.username,
+          name: this.name,
           email: this.email,
           password: this.password,
           password_confirmation: this.confirm

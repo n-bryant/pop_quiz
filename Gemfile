@@ -14,6 +14,8 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem "foreman"
 gem "active_model_serializers"
+gem "paperclip"
+gem "aws-sdk"
 
 group :production, :staging do
   gem "rails_12factor"
