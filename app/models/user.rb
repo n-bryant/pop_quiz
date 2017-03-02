@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_username
+  has_attached_file :image,
+                    styles: { medium: "640x" },
+                    storage: :s3,
+                    s3_credentials: Proc.new{ |a| a.instance.s3_credentials },
+                    s3_region: 'us-east-1'
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   has_many :games
 
   def validate_username
@@ -13,20 +19,15 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def login=(login)
-  #   @login = login
-  # end
-  #
-  # def login
-  #   @login || self.username || self.email || self.image
-  # end
+  def s3_credentials
+    {
+      bucket: ENV["S3_USERS_BUCKET"],
+      access_key_id: ENV["S3_ACCESS_KEY_ID"],
+      secret_access_key: ENV["S3_SECRET_ACCESS_KEY"]
+    }
+  end
 
-  # def self.find_for_database_authentication(warden_conditions)
-  #   conditions = warden_conditions.dup
-  #   if login = conditions.delete(:login)
-  #     where(conditions).where(["username = :value OR lower(email) = lower(:value)", { :value => login }]).first
-  #   elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-  #     where(conditions.to_h).first
-  #   end
-  # end
+  def image_url
+    image.url(:medium)
+  end
 end
