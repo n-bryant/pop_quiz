@@ -2,7 +2,7 @@
   <main class="user-profile">
     <div class="user-image-plus-name is-flex">
       <img src="http://placehold.it/150x120" alt="placeholder square">
-      <h2 class="container-heading">This is Your Name</h2>
+      <h2 class="container-heading">{{profileCtrl.user}}</h2>
     </div>
     <button class="lets-play" ng-click="profileCtrl.goPlay()">play</button>
     <div class="profile-score-board">
@@ -13,20 +13,10 @@
           <li class="cell" ng-click="profileCtrl.updateTable('game')">Game</li>
           <li class="cell" ng-click="profileCtrl.updateTable('score')">Score</li>
         </ul>
-        <ul>
-          <li class="cell">03/01/2017 {{usergame.date}}</li>
-          <li class="cell">Music Game {{user.game.category}}</li>
-          <li class="cell">997 {{user.game.score}}</li>
-        </ul>
-        <ul>
-          <li class="cell">03/01/2017 {{usergame.date}}</li>
-          <li class="cell">Quote Game {{user.game.category}}</li>
-          <li class="cell">550 {{user.game.score}}</li>
-        </ul>
-        <ul>
-          <li class="cell">02/28/2017 {{usergame.date}}</li>
-          <li class="cell">Game Game {{user.game.category}}</li>
-          <li class="cell">790 {{user.game.score}}</li>
+        <ul ng-repeat="game in profileCtrl.allGames">
+          <li class="cell"> {{game.date}}</li>
+          <li class="cell"> {{game.category}}</li>
+          <li class="cell"> {{game.score}}</li>
         </ul>
       </div>
     </div>
@@ -35,15 +25,16 @@
     <h2 class="container-heading">Community</h2>
     <div class="social-container">
       <p>Friend1 {{user.friend}}</p>
-      <ul>
-        <li>Status : Online{{user.friend.online}}</li>
-        <li>Last Login {{user.friend}} : 02.27.17 {{user.friend.lastLogin}}</li>
-        <li>Top Score {{user.friend.score}} : 885{{user.friend.score}}</li>
+      <ul ng-repeat="friend in profileCtrl.allFriends">
+        <li>Status: {{friend.status}}</li>
+        <li>Last Login: {{friend.lastLogin}}</li>
+        <li>Top Score : 885{{friend.score[0]}}</li>
+        <form name="social-form" ng-submit="profileCtrl.sendMessage(social-form.$viewValue)">
+          <input type=textarea placeholder="Write a message">
+          <input type=submit placeholder="Send">
+        </form>
       </ul>
-      <form name="social-form" ng-submit="profileCtrl.sendMessage(social-form.$viewValue)">
-        <input type=textarea placeholder="Write a message">
-        <input type=submit placeholder="Send">
-      </form>
+
     </div>
   </aside>
 </div>

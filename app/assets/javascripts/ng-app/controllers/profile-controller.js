@@ -1,8 +1,12 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').controller('ProfileController', ['$state', function($state) {
-    console.log('in');
+  ng.module('GameApp').controller('ProfileController',  ['$state','DataService', function($state, DataService) {
+    this.user = '';
+
+    console.log(DataService.getUsers());
+    //function to welcome this user
+    //return new value for this.user
     this.goPlay = function() {
       $state.go('GameParent.pickCategory');
     };

@@ -1,5 +1,19 @@
+header {
+  background-color: transparent;;
+  h1 {
+    background-image: -webkit-linear-gradient(92deg, $orange, $orangeHi);
+    color: $orange;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hueShift 10s infinite linear;
+    font: 800 4rem $primaryFont;
+    text-align: center;
+  }
+}
+
 .header-nav {
-  margin: 0 auto;
+  background: transparent;
+  margin: 0 auto -1% auto;
   justify-content: center;
 
   .nav-button {
@@ -7,7 +21,7 @@
     border-radius: 5px;
     border: none;
     font-size: 1rem;
-    margin: 2% 5%;
+    margin: 1%;
     width: 10%;
   }
 }

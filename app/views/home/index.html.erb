@@ -1,14 +1,15 @@
 <header>
-
+  <h1 ui-sref="GameParent.pickCategory">Game Title</h1>
   <nav class="header-nav is-flex">
     <!-- ng-click="loginCtrl.navigate(leaderboard)" create method in controller-->
     <button class="nav-button" ui-sref="GameParent.login">Home</button>
     <!-- ng-click="loginCtrl.navigate(profile)" -->
     <button class="nav-button" ui-sref="GameParent.profile">Profile</button>
+    <!-- ng-click="loginCtrl.navigate(pickCat)" -->
+    <button class="nav-button" ui-sref="GameParent.pickCategory">Categories</button>
     <!-- ng-click="loginCtrl.navigate(leaderboard)" -->
     <button class="nav-button" ui-sref="GameParent.leaderboard">Leaderboard</button>
   </nav>
-  <h1>Game Title</h1>
 </header>
 
 <ui-view><ui-view>

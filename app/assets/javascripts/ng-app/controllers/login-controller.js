@@ -1,7 +1,7 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').controller('LoginController', ['$scope', 'UserService', function($scope, UserService) {
+  ng.module('GameApp').controller('LoginController', ['$scope', 'UserService', 'DataService', function($scope, UserService, DataService) {
     $scope.authenticate = function() {
       const user = {
         username: this.username,

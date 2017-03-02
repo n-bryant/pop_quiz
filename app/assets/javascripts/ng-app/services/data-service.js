@@ -95,6 +95,7 @@
 
     return {
       createUser: createUser,
+      getUsers: getUsers,
       logIn: logInUser,
       logOut: logOutUser
     };
