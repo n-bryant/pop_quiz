@@ -4,13 +4,16 @@
   ng.module('GameApp').service('UserService', ['$q', '$state', '$http', 'DataService', function($q, $state, $http, DataService) {
     this.activeUser;
 
+    function getActiveUser() {
+      return this.activeUser;
+    }
+
     function validateUser(user, isNewUser) {
-      console.log(user);
       if (isNewUser) {
         $q.when(DataService.createUser(user)).then((response) => {
           console.log(response);
-          // this.activeUser = response.data.data;
-          // $state.go('GameParent.profile');
+          this.activeUser = response.data.data;
+          $state.go('GameParent.profile');
         }).catch((error) => {
           console.log(error);
           // present validation message to user
@@ -28,6 +31,7 @@
     }
 
     return {
+      activeUser: getActiveUser,
       validate: validateUser
     };
   }]);

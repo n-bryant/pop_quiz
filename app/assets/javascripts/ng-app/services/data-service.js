@@ -2,7 +2,8 @@
   "use strict";
 
   ng.module('GameApp').service('DataService', ['$http', function($http) {
-    const baseUrl = 'https://lit-thicket-50639.herokuapp.com/';
+    // 'https://lit-thicket-50639.herokuapp.com/'
+    const baseUrl = 'http://localhost:3000/';
 
     function createGame(userId) {
       return $http ({
@@ -22,14 +23,14 @@
         method: 'POST',
         url: `${baseUrl}auth`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           username: newUser.username,
           email: newUser.email,
           password: newUser.password,
           password_confirmation: newUser.confirm
-        }
+        })
       });
     }
 
