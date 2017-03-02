@@ -27,6 +27,7 @@
         },
         data: JSON.stringify({
           username: newUser.username,
+          name: newUser.name,
           email: newUser.email,
           password: newUser.password,
           password_confirmation: newUser.confirm
@@ -70,27 +71,28 @@
         method: 'POST',
         url: `${baseUrl}auth/sign_in`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           email: user.username,
           password: user.password
-        }
+        })
       });
     }
 
     function logOutUser(user) {
+      console.log(user);
       return $http ({
         method: 'DELETE',
         url: `${baseUrl}auth/sign_out`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           uid: user.uid,
-          client: user.client,
-          accessToken: user.accessToken
-        }
+          // client: user.client,
+          // access-token: user.access-token
+        })
       });
     }
 
