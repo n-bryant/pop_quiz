@@ -98,7 +98,8 @@
       createUser: createUser,
       getUsers: getUsers,
       logIn: logInUser,
-      logOut: logOutUser
+      logOut: logOutUser,
+      getTracks: getTracks
     };
   }]);
 })(angular);

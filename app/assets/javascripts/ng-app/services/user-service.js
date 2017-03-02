@@ -2,11 +2,12 @@
   "use strict";
 
   ng.module('GameApp').service('UserService', ['$q', '$state', '$http', 'DataService', function($q, $state, $http, DataService) {
-    this.activeUser;
+     let activeUser;
 
     function getActiveUser() {
-      return this.activeUser;
+      return  this.activeUser;
     }
+
 
     function validateUser(user, isNewUser) {
       if (isNewUser) {
@@ -30,8 +31,10 @@
       }
     }
 
+
+
     return {
-      activeUser: getActiveUser,
+      getActiveUser: getActiveUser,
       validate: validateUser
     };
   }]);
