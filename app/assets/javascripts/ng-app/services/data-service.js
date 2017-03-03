@@ -90,8 +90,8 @@
         },
         data: JSON.stringify({
           uid: user.uid,
-          // client: user.client,
-          // access-token: user.access-token
+          client: user.client,
+          access_token: user.accessToken
         })
       });
     }
@@ -100,7 +100,8 @@
       createUser: createUser,
       getUsers: getUsers,
       logIn: logInUser,
-      logOut: logOutUser
+      logOut: logOutUser,
+      getTracks: getTracks
     };
   }]);
 })(angular);

@@ -2,16 +2,15 @@
   "use strict";
 
   ng.module('GameApp').controller('ProfileController',  ['$state', '$scope', 'DataService', 'UserService', function($state, $scope, DataService, UserService) {
-    // if !session do a $state.go to redirect to login
-
-    // add variable inside of user service of 'test'; reveal it; and see if it is accessible outside of the service
-    console.log(UserService);
+    // if !session do a $state.go to redirect to login; put an ng-show on nav
+    $scope.session = UserService.sessionStatus();
+    if (!$scope.session) {
+      $state.go('GameParent.login');
+    }
 
     $scope.user = UserService.getActiveUser();
     console.log($scope.user);
 
-
-    console.log(DataService.getUsers());
     //function to welcome this user
     //return new value for this.user
     $scope.goPlay = function() {
