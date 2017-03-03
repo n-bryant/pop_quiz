@@ -52,6 +52,17 @@
       }
     }
 
+    function checkGameRound() {
+      if (index === $scope.allTracks.length) {
+        $scope.user.score = $scope.score;
+        UserService.updateUser($scope.user);
+        storeGame($scope.user);
+        $state.go('GameParent.leaderboard');
+      } else {
+        playNext();
+      }
+    }
+
     function compare(arg1, arg2) {
       console.log(arg1, "and",  arg2);
       currentTrack.pause();
@@ -69,13 +80,7 @@
         calculateScore(false);
         console.log('lose');
       }
-
-      if (index === $scope.allTracks.length) {
-        // send to leaderboard
-        console.log('game-over');
-      } else {
-        playNext();
-      }
+      checkGameRound();
     };
 
       function playNext() {
@@ -94,11 +99,15 @@
         }
       }
 
+      function storeGame() {
+
+      }
+
       function trackTime() {
         $scope.$apply(() => {$scope.timeRemaining--});
-        console.log($scope.timeRemaining);
         if ($scope.timeRemaining === 0) {
           // reset animation and start next song
+          checkGameRound();
         }
       }
       window.setInterval(function(){trackTime()}, 1000);
