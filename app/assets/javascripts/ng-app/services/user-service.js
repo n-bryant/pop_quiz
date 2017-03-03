@@ -18,7 +18,7 @@
         $q.when(DataService.createUser(user)).then((response) => {
           activeUser = response.data.data;
           let headers = response.headers();
-          activeUser.accessToken = headers["access-token"];
+          activeUser.accessToken = headers["access_token"];
           activeUser.client = headers["client"];
           session = true;
           $state.go('GameParent.profile');
@@ -30,7 +30,7 @@
         $q.when(DataService.logIn(user)).then((response) => {
           activeUser = response.data.data;
           let headers = response.headers();
-          activeUser.accessToken = headers["access-token"];
+          activeUser.accessToken = headers["access_token"];
           activeUser.client = headers["client"];
           session = true;
           $state.go('GameParent.profile');
