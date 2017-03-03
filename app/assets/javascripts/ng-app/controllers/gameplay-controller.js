@@ -3,10 +3,10 @@
 
   ng.module('GameApp').controller('GameplayController', ['$q', 'DataService', '$scope', 'UserService', '$state', function($q, DataService, $scope, UserService, $state) {
     $scope.session = UserService.sessionStatus();
-    if (!$scope.session) {
-      $state.go('GameParent.login');
-    } else {
-      $scope.user = UserService.getActiveUser();
+    // if (!$scope.session) {
+    //   $state.go('GameParent.login');
+    // } else {
+    //   $scope.user = UserService.getActiveUser();
 
       $scope.allTracks = [];
       $scope.userGuess = '';
@@ -61,6 +61,7 @@
       if (arg1 === arg2) {
         console.log('win');
         $scope.correctguesses++;
+        resetVisualTimer();
         index++;
         calculateScore(true);
       } else {
@@ -70,12 +71,7 @@
         console.log('lose');
       }
 
-      if (index === $scope.allTracks.length) {
-        // send to leaderboard
-        console.log('game-over');
-      } else {
-        playNext();
-      }
+
     };
 
       function playNext() {
@@ -94,11 +90,35 @@
         }
       }
 
+      function deleteVisualTimer() {
+        let songBar = document.querySelector('.song-bar');
+        let innerBar = document.querySelector('.disappearing-bar');
+        let garbage = songBar.removeChild(innerBar);
+      }
+
+      function replaceVisualTimer() {
+        let songBar = document.querySelector('.song-bar');
+        let node = document.createElement('div');
+        node.className += 'disappearing-bar';
+        songBar.appendChild(node);
+
+        console.log('yo');
+      }
+
+      function resetVisualTimer() {
+        deleteVisualTimer();
+        replaceVisualTimer();
+      }
+
       function trackTime() {
         $scope.$apply(() => {$scope.timeRemaining--});
-        console.log($scope.timeRemaining);
+        // console.log($scope.timeRemaining);
         if ($scope.timeRemaining === 0) {
           // reset animation and start next song
+          resetVisualTimer();
+          $scope.timeRemaining = 30;
+          index++;
+          playNext();
         }
       }
       window.setInterval(function(){trackTime()}, 1000);
@@ -108,6 +128,6 @@
         $scope.allTracks = response.data;
         shuffle($scope.allTracks);
       });
-    }
+    // }
   }]);
 })(angular);
