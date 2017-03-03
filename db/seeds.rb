@@ -78,7 +78,7 @@ track_ids.each do |id|
   album_image = result['album']['images'].first['url']
   preview_url = result['preview_url']
 
-  unless preview_url.nil? || track.nil?
+  unless preview_url.nil? || artist.nil?
     Track.create(artist: artist, track: track, album_name: album_name, album_image: album_image, preview_url: preview_url)
   end
 end
