@@ -3,20 +3,24 @@
 
   ng.module('GameApp').service('UserService', ['$q', '$state', '$http', 'DataService', function($q, $state, $http, DataService) {
     let activeUser;
-    let session;
+    let session = false;
 
     function getActiveUser() {
       return activeUser;
+    }
+
+    function getSessionStatus() {
+      return session;
     }
 
     function validateUser(user, isNewUser) {
       if (isNewUser) {
         $q.when(DataService.createUser(user)).then((response) => {
           activeUser = response.data.data;
-          // session = {
-          //   accessToken = response.headers.[[scopes]][0].headersObj.access-token,
-          //   client = response.headers.[[scopes]][0].headersObj.access-token
-          // };
+          let headers = response.headers();
+          activeUser.accessToken = headers["access-token"];
+          activeUser.client = headers["client"];
+          session = true;
           $state.go('GameParent.profile');
         }).catch((error) => {
           console.log(error);
@@ -24,8 +28,11 @@
         });
       } else {
         $q.when(DataService.logIn(user)).then((response) => {
-          console.log(response);
           activeUser = response.data.data;
+          let headers = response.headers();
+          activeUser.accessToken = headers["access-token"];
+          activeUser.client = headers["client"];
+          session = true;
           $state.go('GameParent.profile');
         }).catch((error) => {
           // present validation message to user
@@ -36,6 +43,7 @@
 
     return {
       getActiveUser: getActiveUser,
+      sessionStatus: getSessionStatus,
       validate: validateUser
     };
   }]);

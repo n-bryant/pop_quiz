@@ -23,7 +23,6 @@
         $scope.artist = newArray[$scope.index].artist;
         $scope.track = newArray[$scope.index].preview_url;
         play($scope.track);
-
       }
 
   $scope.guess = function() {
@@ -56,10 +55,6 @@
       shuffle($scope.allTracks);
       // play song 0 every time? or MathFloor(MathRandom again)?
     });
-
-
-
-
 
   }]);
 })(angular);

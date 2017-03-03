@@ -97,8 +97,8 @@
         },
         data: JSON.stringify({
           uid: user.uid,
-          // client: user.client,
-          // access-token: user.access-token
+          client: user.client,
+          access_token: user.accessToken
         })
       });
     }

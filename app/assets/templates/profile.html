@@ -1,7 +1,6 @@
 <div class="profile-container is-flex">
   <main class="user-profile">
-    <button class="logout-btn" ng-click="logOut(user)">Logout</button>
-    <div class="user-image-plus-name is-flex">
+    <div class="user-avatar-container is-flex">
       <img src="http://placehold.it/150x120" alt="placeholder square">
       <h2 class="container-heading">{{user.name}}</h2>
     </div>
@@ -22,7 +21,11 @@
   </main>
   <aside class="social-aside">
     <h2 class="container-heading">Community</h2>
+    <div class="logout-btn-container is-centered">
+      <button class="logout-btn" ng-click="logOut(user)">Logout</button>
+    </div>
     <div class="social-container">
+      <!-- friend avatar -->
       <p>Friend1 {{user.friend}}</p>
       <ul ng-repeat="friend in allFriends">
         <li>Status: {{friend.status}}</li>
@@ -33,7 +36,6 @@
           <input type=submit placeholder="Send">
         </form>
       </ul>
-
     </div>
   </aside>
 </div>

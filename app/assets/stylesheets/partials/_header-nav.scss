@@ -1,6 +1,6 @@
 header {
   background-color: $slate;
-  padding-bottom: 1%;
+  padding: 2rem;
   h1 {
     background-image: -webkit-linear-gradient(92deg, $orange, $orangeHi);
     color: $orange;
@@ -13,19 +13,23 @@ header {
 }
 
 .header-nav {
-  margin: 0 auto;
-  width: 85%;
+  margin: 1rem auto 0 auto;
+  width: 50%;
 
   .nav-list {
-    
+    justify-content: space-around;
   }
 
   .nav-button {
-    background: $light;
-    border-radius: 5px;
-    border: none;
+    color: $light;
     font-size: 1rem;
-    margin: 1%;
-    width: 10%;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      text-decoration: underline;
+    }
   }
 }
