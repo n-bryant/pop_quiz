@@ -72,16 +72,23 @@ track_ids = ['4vb4mFvYsr2h6enhjJsq9Y','3dhjNA0jGA8vHBQ1VdD6vV',
 
 track_ids.each do |id|
   result = HTTParty.get("#{url}#{id}")
+
   artist = nil
   unless result['artists'].nil?
     artist = result['artists'].first['name']
   end
+
   track = result['name']
-  album_name = result['album']['name']
+
+  album_name = nil
+  unless album_name.nil?
+    album_name = result['album']['name']
+  end
+
   album_image = result['album']['images'].first['url']
   preview_url = result['preview_url']
 
-  unless preview_url.nil? || artist.nil?
+  unless preview_url.nil? || artist.nil? || album_name.nil?
     Track.create(artist: artist, track: track, album_name: album_name, album_image: album_image, preview_url: preview_url)
   end
 end
