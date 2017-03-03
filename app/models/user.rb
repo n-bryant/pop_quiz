@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
 
   def s3_credentials
     {
-      bucket: ENV["S3_USERS_BUCKET"],
-      access_key_id: ENV["S3_ACCESS_KEY_ID"],
-      secret_access_key: ENV["S3_SECRET_ACCESS_KEY"]
+      bucket: "trivia-profile-pics", #ENV["S3_USERS_BUCKET"],
+      access_key_id: "AKIAJQJ4TFVV6J55HUMA", #ENV["S3_ACCESS_KEY_ID"],
+      secret_access_key: "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" #ENV["S3_SECRET_ACCESS_KEY"]
     }
   end
 
