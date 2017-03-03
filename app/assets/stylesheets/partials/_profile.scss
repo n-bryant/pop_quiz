@@ -45,11 +45,11 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-size: 4.25rem;
+  font-size: 3rem;
   margin: 2% 40% 2% 40%;
   padding: 1rem;
   text-transform: uppercase;
-  width: 20%;
+  min-width: 20%;
 
   &:hover {
     animation: bounce 1s infinite ease;
@@ -94,9 +94,10 @@
     border-bottom: 4px dashed $orangeHi;
     color: $orangeHi;
     font-family: $primaryFont;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: .5rem;
     text-align: center;
+    width: 100%;
   }
 
   .logout-btn-container {

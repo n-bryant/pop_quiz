@@ -35,13 +35,19 @@
       });
     }
 
-    function deleteUser(userId) {
+    function deleteUser(user) {
+      console.log(user);
       return $http ({
         method: 'DELETE',
-        url: `${baseUrl}/users/${userId}`,
+        url: `${baseUrl}auth`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
-        }
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        data: JSON.stringify({
+          uid: user.uid,
+          client: user.client,
+          access_token: user.accessToken
+        })
       });
     }
 
@@ -109,7 +115,8 @@
       logIn: logInUser,
       logOut: logOutUser,
       getTracks: getTracks,
-      games: getGames
+      games: getGames,
+      delete: deleteUser
     };
   }]);
 })(angular);

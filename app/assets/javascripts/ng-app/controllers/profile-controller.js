@@ -1,7 +1,7 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').controller('ProfileController',  ['$state', '$scope', 'DataService', 'UserService', function($state, $scope, DataService, UserService) {
+  ng.module('GameApp').controller('ProfileController',  ['$state', '$scope', 'DataService', 'UserService', '$q', function($state, $scope, DataService, UserService, $q) {
     // include orderByField to default sort scores
     $scope.orderByField = 'score';
 
@@ -35,6 +35,12 @@
 
     $scope.logOut = function(user) {
       DataService.logOut(user);
+    }
+    $scope.delete = function(user) {
+      $q.when(DataService.delete(user)).then((response) => {
+        console.log(response);
+        $state.go('GameParent.login');
+      });
     }
   }]);
 })(angular);
