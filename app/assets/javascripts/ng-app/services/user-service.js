@@ -13,6 +13,11 @@
       return session;
     }
 
+    function updateUser(user) {
+      activeUser = user;
+      console.log(activeUser);
+    }
+
     function validateUser(user, isNewUser) {
       if (isNewUser) {
         $q.when(DataService.createUser(user)).then((response) => {
@@ -43,6 +48,7 @@
 
     return {
       getActiveUser: getActiveUser,
+      updateUser: updateUser,
       sessionStatus: getSessionStatus,
       validate: validateUser
     };

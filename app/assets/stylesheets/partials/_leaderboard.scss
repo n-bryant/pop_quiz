@@ -5,6 +5,15 @@
   height: 100vh;
 }
 
+.current-score-container {
+  padding-top: 4rem;
+  h3 {
+    animation: hueShift 1s infinite linear;
+    color: $orange;
+    font: 7rem/1 helvetica;
+  }
+}
+
 .leaderboard {
   width: 100%;
   padding: 1%;

@@ -3,10 +3,10 @@
 
   ng.module('GameApp').controller('GameplayController', ['$q', 'DataService', '$scope', 'UserService', '$state', function($q, DataService, $scope, UserService, $state) {
     $scope.session = UserService.sessionStatus();
-    // if (!$scope.session) {
-    //   $state.go('GameParent.login');
-    // } else {
-    //   $scope.user = UserService.getActiveUser();
+    if (!$scope.session) {
+      $state.go('GameParent.login');
+    } else {
+      $scope.user = UserService.getActiveUser();
 
       $scope.allTracks = [];
       $scope.userGuess = '';
@@ -52,6 +52,17 @@
       }
     }
 
+    function checkGameRound() {
+      if (index === $scope.allTracks.length) {
+        $scope.user.score = $scope.score;
+        UserService.updateUser($scope.user);
+        storeGame($scope.user);
+        $state.go('GameParent.leaderboard');
+      } else {
+        playNext();
+      }
+    }
+
     function compare(arg1, arg2) {
       console.log(arg1, "and",  arg2);
       currentTrack.pause();
@@ -70,8 +81,7 @@
         calculateScore(false);
         console.log('lose');
       }
-
-
+      checkGameRound();
     };
 
       function playNext() {
@@ -110,6 +120,10 @@
         replaceVisualTimer();
       }
 
+      function storeGame() {
+
+      }
+
       function trackTime() {
         $scope.$apply(() => {$scope.timeRemaining--});
         // console.log($scope.timeRemaining);
@@ -118,7 +132,7 @@
           resetVisualTimer();
           $scope.timeRemaining = 30;
           index++;
-          playNext();
+          checkGameRound();
         }
       }
       window.setInterval(function(){trackTime()}, 1000);
@@ -128,6 +142,6 @@
         $scope.allTracks = response.data;
         shuffle($scope.allTracks);
       });
-    // }
+    }
   }]);
 })(angular);
