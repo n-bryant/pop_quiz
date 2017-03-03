@@ -41,7 +41,7 @@
 
     function calculateScore(guessStatus) {
       if (guessStatus) {
-        $scope.score += (2 * $scope.timeRemaining);
+        $scope.score += (4 * $scope.timeRemaining);
         console.log($scope.score);
       } else {
         $scope.score -= 30;
@@ -111,8 +111,6 @@
         let node = document.createElement('div');
         node.className += 'disappearing-bar';
         songBar.appendChild(node);
-
-        console.log('yo');
       }
 
       function resetVisualTimer() {
@@ -120,8 +118,12 @@
         replaceVisualTimer();
       }
 
-      function storeGame() {
-
+      function storeGame(user) {
+        $q.when(DataService.createGame(user)).then((response) => {
+          console.log(response);
+        }).catch((error) => {
+          console.log(error);
+        });
       }
 
       function trackTime() {
