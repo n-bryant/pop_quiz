@@ -1,9 +1,22 @@
-.leaderboard {
-  width: 100%;
-  padding: 1%;
+.leaderboard-container {
   background-image: -webkit-linear-gradient(top,#648880,#2196F3);
   background-image: linear-gradient(to bottom,#648880,#2196F3);
   background-color: #648880;
+  height: 100vh;
+}
+
+.current-score-container {
+  padding-top: 4rem;
+  h3 {
+    animation: hueShift 1s infinite linear;
+    color: $orange;
+    font: 7rem/1 helvetica;
+  }
+}
+
+.leaderboard {
+  width: 100%;
+  padding: 1%;
 }
 
 .game-score-board {
