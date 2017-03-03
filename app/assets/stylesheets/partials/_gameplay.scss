@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 
-.attempts {
+.incorrect {
   float: left;
   margin-left: 10%;
 }
@@ -84,4 +84,10 @@
     }
 
   }
+}
+
+.score-container {
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 50%;
 }
