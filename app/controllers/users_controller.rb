@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     render json: @users
   end
-
+  
   # GET /users/1
   def show
     @user = User.find_by_id(params[:id])

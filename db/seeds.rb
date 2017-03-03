@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'httparty'
 
 Category.create(name: "music")
@@ -75,7 +67,8 @@ track_ids = ['4vb4mFvYsr2h6enhjJsq9Y','3dhjNA0jGA8vHBQ1VdD6vV',
             '5QTEEImISE4USGEwqAci8O', '40b31eggZB30hoqXhGm4qc',
             '4MC8Oom2D2a7ZPQDpuVIYK', '3M8FzayQWtkvOhqMn2V4T2',
             '6jkNs6ZRiLjIk87MWmSGWu', '6VBy3FLlKZOWV85xmAXmr8',
-            '4nXkbcTj3nyww1cHkw5RAP', '4QEbXYWpDDWHzXNINdZlzW']
+            '4nXkbcTj3nyww1cHkw5RAP', '4QEbXYWpDDWHzXNINdZlzW',
+            '50kpGaPAhYJ3sGmk6vplg0', '09CtPGIpYB4BrO8qb1RGsF']
 
 track_ids.each do |id|
   result = HTTParty.get("#{url}#{id}")

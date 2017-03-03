@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validate :validate_username
   has_attached_file :image,
                     styles: { medium: "640x" },
+                    :default_url => "/assets/images/default.jpg",
                     storage: :s3,
                     s3_credentials: Proc.new{ |a| a.instance.s3_credentials },
                     s3_region: 'us-east-1'
