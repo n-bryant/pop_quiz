@@ -2,11 +2,11 @@
   <section class="categories-container">
     <ul class="options-list is-flex">
       <!-- fill out lis with ng-repeat -->
-      <li class="category-item is-centered">
-        <div class="category music" ui-sref="GameParent.gameplay">music</div>
+      <li ng-repeat="category in allCategories" class="category-item is-centered" ng-click="setUserCategory(false, category.id)">
+        <div class="category {{category.name}}">{{category.name}}</div>
       </li>
-      <li class="category-item is-centered">
-        <div class="category random" ui-sref="GameParent.gameplay">random</div>
+      <li class="category-item is-centered" ng-click="setUserCategory(true)">
+        <div class="category random">random</div>
       </li>
     </ul>
   </section>

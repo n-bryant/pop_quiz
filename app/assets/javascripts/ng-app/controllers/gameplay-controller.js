@@ -7,6 +7,7 @@
       $state.go('GameParent.login');
     } else {
       $scope.user = UserService.getActiveUser();
+      console.log($scope.user);
 
       $scope.allTracks = [];
       $scope.userGuess = '';
@@ -59,20 +60,21 @@
         storeGame($scope.user);
         $state.go('GameParent.leaderboard');
       } else {
+        currentTrack.pause();
+        resetVisualTimer();
+        $scope.timeRemaining = 30;
         playNext();
       }
     }
 
     function compare(arg1, arg2) {
       console.log(arg1, "and",  arg2);
-      currentTrack.pause();
       guessForm.reset();
       arg1 = arg1.toLowerCase();
       arg2 = arg2.toLowerCase();
       if (arg1 === arg2) {
         console.log('win');
         $scope.correctguesses++;
-        resetVisualTimer();
         index++;
         calculateScore(true);
       } else {
@@ -142,7 +144,8 @@
       //retrieve allTracks from DataService
       $q.when(DataService.getTracks()).then((response) => {
         $scope.allTracks = response.data;
-        shuffle($scope.allTracks);
+        console.log($scope.allTracks);
+        playNext();
       });
     }
   }]);

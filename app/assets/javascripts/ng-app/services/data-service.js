@@ -14,7 +14,8 @@
         },
         data: JSON.stringify({
           user_id: user.id,
-          score: user.score
+          score: user.score,
+          category_id: user.category
         })
       });
     }
@@ -49,7 +50,7 @@
     function getTracks() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}tracks`
+        url: `${baseUrl}tracks?limit=10`
       });
     }
 
