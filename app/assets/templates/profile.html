@@ -10,14 +10,12 @@
       <h3> Your Top Scores</h3>
       <div class="user-scores">
         <ul>
-          <li class="cell" ng-click="updateTable('date')">Date</li>
           <li class="cell" ng-click="updateTable('game')">Game</li>
           <li class="cell" ng-click="updateTable('score')">Score</li>
         </ul>
-        <ul ng-repeat="game in allGames">
-          <li class="cell"> {{game.date}}</li>
-          <li class="cell"> {{game.category}}</li>
-          <li class="cell"> {{game.score}}</li>
+        <ul ng-repeat="game in user.games | orderBy: orderByField:'score'">
+          <li class="cell"> {{user.games.category}}</li>
+          <li class="cell"> {{user.games.score}}</li>
         </ul>
       </div>
     </div>

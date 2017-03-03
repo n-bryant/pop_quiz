@@ -6,6 +6,9 @@
     $scope.userGuess = '';
     $scope.track="";
     $scope.artist="";
+    $scope.counter = 0;
+    $scope.correctguesses = 0;
+    $scope.index = 0;
 
     let index = 0;
     //create shuffle function
@@ -16,9 +19,9 @@
         newArray.push(array[j]);
         array.splice(j, 1);
         }
-        console.log(newArray[index]);
-        $scope.artist = newArray[index].artist;
-        $scope.track = newArray[index].preview_url;
+        console.log(newArray[$scope.index]);
+        $scope.artist = newArray[$scope.index].artist;
+        $scope.track = newArray[$scope.index].preview_url;
         play($scope.track);
 
       }
@@ -29,12 +32,14 @@
     };
 
   const compare = function(arg1, arg2) {
+    $scope.counter++;
     console.log(arg1, "and",  arg2);
     arg1 = arg1.toLowerCase();
     arg2 = arg2.toLowerCase();
     if (arg1 == arg2) {
       console.log('win');
-      
+      $scope.correctguesses++;
+      $scope.index++;
     } else {
       console.log('lose');
     }

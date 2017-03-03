@@ -59,6 +59,13 @@
       });
     }
 
+    function getGames() {
+      return $http ({
+        method: 'GET',
+        url: `${baseUrl}games`
+      });
+    }
+
     function getUserById(userId) {
       return $http ({
         method: 'GET',
@@ -101,7 +108,8 @@
       getUsers: getUsers,
       logIn: logInUser,
       logOut: logOutUser,
-      getTracks: getTracks
+      getTracks: getTracks,
+      games: getGames
     };
   }]);
 })(angular);

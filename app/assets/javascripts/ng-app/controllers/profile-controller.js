@@ -2,6 +2,8 @@
   "use strict";
 
   ng.module('GameApp').controller('ProfileController',  ['$state', '$scope', 'DataService', 'UserService', function($state, $scope, DataService, UserService) {
+    // include orderByField to default sort scores
+    $scope.orderByField = 'score';
     // if !session do a $state.go to redirect to login
 
     // add variable inside of user service of 'test'; reveal it; and see if it is accessible outside of the service
@@ -20,10 +22,11 @@
       console.log(message);
     };
 
-    $scope.updateTable = function(col) {
-        $scope.orderByField = col;
-        console.log(col);
-      };
+    //updateTable to sort by score or username
+    $scope.updateTable = function(label) {
+        $scope.orderByField = label;
+        console.log(label);
+    };
 
     $scope.logOut = function(user) {
       DataService.logOut(user);
