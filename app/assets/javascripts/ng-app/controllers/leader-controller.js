@@ -1,7 +1,7 @@
 (function(ng) {
   "use strict";
 
-  ng.module('GameApp').controller('LeaderController', ['$q', 'DataService', '$scope', function($q, DataService, $scope) {
+  ng.module('GameApp').controller('LeaderController', ['$q', 'DataService', '$scope', 'UserService', '$state', function($q, DataService, $scope, UserService, $state) {
     $scope.session = UserService.sessionStatus();
     if (!$scope.session) {
       $state.go('GameParent.login');
