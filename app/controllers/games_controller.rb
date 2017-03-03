@@ -9,6 +9,16 @@ class GamesController < ApplicationController
       @games = Game.last
     end
 
+    sort = params[:sort]
+    unless sort.nil?
+      @games = Game.order("#{sort} DESC")
+    end
+
+    limit = params[:limit]
+    unless limit.nil?
+      @games = Game.limit(limit)
+    end
+
     render json: @games
   end
 
