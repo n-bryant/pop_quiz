@@ -2,7 +2,8 @@
   "use strict";
 
   ng.module('GameApp').service('DataService', ['$http', function($http) {
-    const baseUrl = 'https://lit-thicket-50639.herokuapp.com/';
+    // 'https://lit-thicket-50639.herokuapp.com/'
+    const baseUrl = 'http://localhost:3000/';
 
     function createGame(userId) {
       return $http ({
@@ -22,14 +23,15 @@
         method: 'POST',
         url: `${baseUrl}auth`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           username: newUser.username,
+          name: newUser.name,
           email: newUser.email,
           password: newUser.password,
           password_confirmation: newUser.confirm
-        }
+        })
       });
     }
 
@@ -57,6 +59,13 @@
       });
     }
 
+    function getGames() {
+      return $http ({
+        method: 'GET',
+        url: `${baseUrl}games`
+      });
+    }
+
     function getUserById(userId) {
       return $http ({
         method: 'GET',
@@ -69,34 +78,38 @@
         method: 'POST',
         url: `${baseUrl}auth/sign_in`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           email: user.username,
           password: user.password
-        }
+        })
       });
     }
 
     function logOutUser(user) {
+      console.log(user);
       return $http ({
         method: 'DELETE',
         url: `${baseUrl}auth/sign_out`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
+        data: JSON.stringify({
           uid: user.uid,
           client: user.client,
-          accessToken: user.accessToken
-        }
+          access_token: user.accessToken
+        })
       });
     }
 
     return {
       createUser: createUser,
+      getUsers: getUsers,
       logIn: logInUser,
-      logOut: logOutUser
+      logOut: logOutUser,
+      getTracks: getTracks,
+      games: getGames
     };
   }]);
 })(angular);
