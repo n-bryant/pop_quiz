@@ -5,16 +5,18 @@
     // 'https://lit-thicket-50639.herokuapp.com/'
     const baseUrl = 'http://localhost:3000/';
 
-    function createGame(userId) {
+    function createGame(user) {
       return $http ({
         method: 'POST',
         url: `${baseUrl}games`,
         headers: {
-          'Content-Type': 'string; default-value: application/json;charset=utf-8'
+          'Content-Type': 'application/json;charset=utf-8'
         },
-        data: {
-          user_id: userId
-        }
+        data: JSON.stringify({
+          user_id: user.id,
+          score: user.score,
+          category_id: user.category
+        })
       });
     }
 
@@ -54,7 +56,14 @@
     function getTracks() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}tracks`
+        url: `${baseUrl}tracks?limit=10`
+      });
+    }
+
+    function getCategories() {
+      return $http ({
+        method: 'GET',
+        url: `${baseUrl}categories`
       });
     }
 
@@ -111,7 +120,9 @@
 
     return {
       createUser: createUser,
+      createGame: createGame,
       getUsers: getUsers,
+      getCategories: getCategories,
       logIn: logInUser,
       logOut: logOutUser,
       getTracks: getTracks,
