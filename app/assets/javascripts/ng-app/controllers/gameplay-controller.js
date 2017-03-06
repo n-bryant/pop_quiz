@@ -77,13 +77,34 @@
         $scope.correctguesses++;
         index++;
         calculateScore(true);
+        guessEval(true);
       } else {
         $scope.incorrectguesses++;
         index++;
         calculateScore(false);
+        guessEval(false);
+        compare
         console.log('lose');
       }
       checkGameRound();
+    };
+
+    //function to show/hide the guess evaluation text
+    function guessEval(arg) {
+      if (arg === true) {
+        document.querySelector('.truth').style.color = "#39ff14";
+        removeColor();
+      } else {
+        document.querySelector('.lies').style.color = "#ff073a";
+        removeColor();
+      }
+    }
+
+    function removeColor() {
+      setTimeout(function(){
+        document.querySelector('.truth').style.color = "transparent";
+        document.querySelector('.lies').style.color = "transparent";
+      }, 750);
     };
 
       function playNext() {
@@ -92,12 +113,14 @@
           $scope.track = $scope.allTracks[index].preview_url;
 
           currentTrack = new Audio($scope.track);
+          console.log(currentTrack)
           currentTrack.play();
         } else {
           $scope.artist = $scope.allTracks[index].artist;
           $scope.track = $scope.allTracks[index].preview_url;
 
           currentTrack = new Audio($scope.track);
+          console.log(currentTrack)
           currentTrack.play();
         }
       }

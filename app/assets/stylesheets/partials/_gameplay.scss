@@ -1,6 +1,23 @@
 .wrapper {
   overflow: hidden;
 }
+//
+.truth, .lies {
+  animation: blink .33s infinite;
+  -webkit-animation: blink .33s infinite;
+  color: transparent;
+  font-family: $primaryFont;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.disappearing-bar {
+  color: #39ff14
+}
+
+.active {
+  display: block;
+}
 
 .incorrect {
   float: left;
@@ -31,6 +48,7 @@
     width: 70%;
 
     .disappearing-bar {
+      color: transparent;
       animation: move 30s linear;
       background-color: $light;
       border-radius: 20px;

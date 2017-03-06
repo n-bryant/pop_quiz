@@ -14,16 +14,19 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
 
     .category-item {
       border: 2px solid $light;
       cursor: pointer;
-      padding: 3rem;
-      width: 33%;
+      padding: 3rem 0;
+      width: 200px;
 
       .category {
         font-size: 2rem;
         text-transform: uppercase;
+        width: 100%;
       }
 
       &:hover {
