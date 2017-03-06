@@ -14,8 +14,7 @@
         data: {
           game: {
             user_id: user.id,
-            score: user.score,
-            category_id: user.category
+            score: user.score
           }
         }
       });
