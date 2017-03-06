@@ -80,7 +80,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: trivia_game_production
-  username: trivia_game
-  password: <%= ENV['TRIVIA_GAME_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
