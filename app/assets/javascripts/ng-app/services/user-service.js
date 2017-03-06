@@ -24,6 +24,7 @@
     }
 
     function validateUser(user, isNewUser) {
+      // try restructuring this with a $watch
       if (isNewUser) {
         $q.when(DataService.createUser(user)).then((response) => {
           activeUser = response.data.data;
@@ -55,6 +56,7 @@
         }).catch((error) => {
           console.log(error);
           isValid = false;
+          console.log(isValid);
         });
       }
     }
