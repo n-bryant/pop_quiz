@@ -7,14 +7,26 @@
 
   .user-profile {
     // background-color: blue;
-    margin: 2rem 1% 1% 1%;
-    width: 70%;
+    @include bp(mobile) {
+      margin: 2rem 1% 1% 1%;
+      width: 100%;
+    }
+    @include bp(medium) {
+      margin: 2rem 1% 1% 1%;
+      width: 70%;
+    }
   }
 
   .social-aside {
     // background-color: red;
-    margin: 2rem 1% 1% 1%;
-    width: 20%;
+    @include bp(mobile) {
+      display: none;
+    }
+    @include bp(medium) {
+      display: inline-block;
+      margin: 2rem 1% 1% 1%;
+      width: 20%;
+    }
   }
 
 }
@@ -28,7 +40,7 @@
   width: 100%;
 
   img {
-    max-width: 150px;
+    max-width: 200px;
     margin: 2% auto;
   }
 
