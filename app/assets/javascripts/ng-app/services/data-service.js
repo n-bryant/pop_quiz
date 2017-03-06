@@ -4,6 +4,7 @@
   ng.module('GameApp').service('DataService', ['$http', function($http) {
     // 'https://lit-thicket-50639.herokuapp.com/'
     const baseUrl = 'http://localhost:3000/';
+    this.playingSong = null;
 
     function createGame(user) {
       return $http ({
@@ -103,7 +104,6 @@
     }
 
     function logOutUser(user) {
-      console.log(user);
       return $http ({
         method: 'DELETE',
         url: `${baseUrl}auth/sign_out`,
@@ -118,6 +118,10 @@
       });
     }
 
+    function setSong(song) {
+      this.playingSong = song;
+    }
+
     return {
       createUser: createUser,
       createGame: createGame,
@@ -127,7 +131,8 @@
       logOut: logOutUser,
       getTracks: getTracks,
       games: getGames,
-      delete: deleteUser
+      delete: deleteUser,
+      setSong: setSong
     };
   }]);
 })(angular);

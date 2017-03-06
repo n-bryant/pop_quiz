@@ -2,7 +2,7 @@
   <main class="user-profile">
     <div class="user-avatar-container is-flex">
       <button class="delete-btn" ng-click="delete(user)">Delete Profile</button>
-      <img src="http://placehold.it/150x120" alt="placeholder square">
+      <img src="{{user.image}}" alt="placeholder square">
       <h2 class="container-heading">{{user.name}}</h2>
     </div>
     <button class="lets-play" ng-click="goPlay()">play</button>
@@ -13,9 +13,9 @@
           <li class="cell" ng-click="updateTable('game')">Game</li>
           <li class="cell" ng-click="updateTable('score')">Score</li>
         </ul>
-        <ul ng-repeat="game in user.games | orderBy: orderByField:'score'">
-          <li class="cell"> {{user.games.category}}</li>
-          <li class="cell"> {{user.games.score}}</li>
+        <ul ng-repeat="game in userGames | orderBy: orderByField:'score'">
+          <li class="cell"> {{game.category.name}}</li>
+          <li class="cell"> {{game.score}}</li>
         </ul>
       </div>
     </div>

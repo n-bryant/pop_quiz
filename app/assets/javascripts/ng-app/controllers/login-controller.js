@@ -2,6 +2,7 @@
   "use strict";
 
   ng.module('GameApp').controller('LoginController', ['$scope', 'UserService', 'DataService', function($scope, UserService, DataService) {
+
     $scope.authenticate = function() {
       const user = {
         username: this.username,
@@ -9,6 +10,8 @@
       };
 
       UserService.validate(user);
+      $scope.validUser = UserService.validStatus();
+      console.log($scope.validUser);
     };
   }]);
 })(angular);
