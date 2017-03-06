@@ -57,7 +57,7 @@
     function getTracks() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}tracks?limit=10`
+        url: `${baseUrl}tracks`
       });
     }
 

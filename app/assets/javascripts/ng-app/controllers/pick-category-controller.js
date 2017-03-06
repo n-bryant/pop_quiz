@@ -21,6 +21,7 @@
 
     // set category on user and push user data to UserService
     $q.when(DataService.getCategories()).then((response) => {
+      console.log(response);
       $scope.allCategories = response.data;
     }).catch((error) => {
       console.log(error);

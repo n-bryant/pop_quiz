@@ -1,12 +1,12 @@
 <main class="pick-category-wrapper wrapper">
   <section class="song-container">
     <h1>Guess the Artist!</h1>
-    <div class='truth'>Great Job!</div>
+    <div class='truth'>{{allTracks[index - 1].artist}}</div>
     <div class="song-bar">
       <div class="disappearing-bar">
       </div>
     </div>
-    <div class='lies'>No points for you!</div>
+    <div class='lies'>{{allTracks[index - 1].artist}}</div>
   </section>
   <aside class="incorrect">
     <p><span class="update"> {{incorrectguesses}} </span>  incorrect guesses</p>

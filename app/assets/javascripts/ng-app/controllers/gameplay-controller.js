@@ -156,7 +156,15 @@
 
       //retrieve allTracks from DataService
       $q.when(DataService.getTracks()).then((response) => {
+        // only grab the tracks matching the user's selected category
         $scope.allTracks = response.data;
+        let userTracks = [];
+        for (let i = 0; i < $scope.allTracks.length; i++) {
+          if ($scope.allTracks[i].category_id === $scope.user.category) {
+            userTracks.push($scope.allTracks[i]);
+          }
+        }
+        $scope.allTracks = userTracks;
         $scope.totalRounds = $scope.allTracks.length;
         console.log($scope.allTracks);
         playNext();
