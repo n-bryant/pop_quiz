@@ -1,9 +1,12 @@
 <main class="pick-category-wrapper wrapper">
   <section class="song-container">
     <h1>Guess the Artist!</h1>
+    <div class='truth'>Great Job!</div>
     <div class="song-bar">
-      <div class="disappearing-bar"></div>
+      <div class="disappearing-bar">
+      </div>
     </div>
+    <div class='lies'>No points for you!</div>
   </section>
   <aside class="incorrect">
     <p><span class="update"> {{incorrectguesses}} </span>  incorrect guesses</p>
@@ -17,6 +20,7 @@
         <input class="text-guess is-centered" type=text autofocus>
         <input class="guess-button" type=submit value="Guess!">
       </form>
+      <span class="round-tracker">Round: {{index + 1}}/{{totalRounds}}</span>
     </div>
     <div class="score-container is-flex">
       <span class="time">Time Remaining: {{timeRemaining}}s</span>

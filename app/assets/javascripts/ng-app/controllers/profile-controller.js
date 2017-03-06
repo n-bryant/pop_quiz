@@ -5,9 +5,6 @@
     // include orderByField to default sort scores
     $scope.orderByField = 'score';
 
-    // add variable inside of user service of 'test'; reveal it; and see if it is accessible outside of the service
-    console.log(UserService);
-
     // if !session do a $state.go to redirect to login; put an ng-show on nav
     $scope.session = UserService.sessionStatus();
     if (!$scope.session) {
@@ -15,7 +12,18 @@
     }
 
     $scope.user = UserService.getActiveUser();
-    console.log($scope.user);
+
+    $scope.userGames = [];
+    // fetch the user's game data
+    $q.when(DataService.games()).then((response) => {
+      for (let i = 0; i < response.data.length; i++) {
+        if (response.data[i].user.id === $scope.user.id) {
+          $scope.userGames.push(response.data[i]);
+        }
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
 
     //return new value for this.user
     $scope.goPlay = function() {
@@ -35,6 +43,7 @@
 
     $scope.logOut = function(user) {
       DataService.logOut(user);
+      $state.go('GameParent.login');
     }
     $scope.delete = function(user) {
       $q.when(DataService.delete(user)).then((response) => {

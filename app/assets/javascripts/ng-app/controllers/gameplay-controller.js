@@ -10,6 +10,8 @@
       console.log($scope.user);
 
       $scope.allTracks = [];
+      $scope.index = 0;
+      $scope.totalRounds = 0;
       $scope.userGuess = '';
       $scope.track="";
       $scope.artist="";
@@ -20,20 +22,7 @@
 
       const guessForm = document.querySelector('.guess-form');
 
-      let index = 0;
       let currentTrack = null;
-
-      function shuffle(array) {
-        let newArray = [];
-        for (let i = 0; i < array.length; i++) {
-          let j = Math.floor(Math.random() * (array.length));
-          newArray.push(array[j]);
-          array.splice(j, 1);
-        }
-          console.log(newArray);
-          $scope.allTracks = newArray;
-          playNext();
-      }
 
       $scope.guess = function() {
           $scope.userGuess= event.target[0].value;
@@ -54,13 +43,13 @@
     }
 
     function checkGameRound() {
-      if (index === $scope.allTracks.length) {
+      currentTrack.pause();
+      if ($scope.index === $scope.allTracks.length) {
         $scope.user.score = $scope.score;
         UserService.updateUser($scope.user);
         storeGame($scope.user);
         $state.go('GameParent.leaderboard');
       } else {
-        currentTrack.pause();
         resetVisualTimer();
         $scope.timeRemaining = 30;
         playNext();
@@ -75,31 +64,55 @@
       if (arg1 === arg2) {
         console.log('win');
         $scope.correctguesses++;
-        index++;
+        $scope.index++;
         calculateScore(true);
+        guessEval(true);
       } else {
         $scope.incorrectguesses++;
-        index++;
+        $scope.index++;
         calculateScore(false);
+        guessEval(false);
+        compare
         console.log('lose');
       }
       checkGameRound();
     };
 
+    //function to show/hide the guess evaluation text
+    function guessEval(arg) {
+      if (arg === true) {
+        document.querySelector('.truth').style.color = "#39ff14";
+        removeColor();
+      } else {
+        document.querySelector('.lies').style.color = "#ff073a";
+        removeColor();
+      }
+    }
+
+    function removeColor() {
+      setTimeout(function(){
+        document.querySelector('.truth').style.color = "transparent";
+        document.querySelector('.lies').style.color = "transparent";
+      }, 750);
+    };
+
       function playNext() {
         if (currentTrack) {
-          $scope.artist = $scope.allTracks[index].artist;
-          $scope.track = $scope.allTracks[index].preview_url;
+          $scope.artist = $scope.allTracks[$scope.index].artist;
+          $scope.track = $scope.allTracks[$scope.index].preview_url;
 
           currentTrack = new Audio($scope.track);
+          console.log(currentTrack)
           currentTrack.play();
         } else {
-          $scope.artist = $scope.allTracks[index].artist;
-          $scope.track = $scope.allTracks[index].preview_url;
+          $scope.artist = $scope.allTracks[$scope.index].artist;
+          $scope.track = $scope.allTracks[$scope.index].preview_url;
 
           currentTrack = new Audio($scope.track);
+          console.log(currentTrack)
           currentTrack.play();
         }
+        DataService.setSong(currentTrack);
       }
 
       function deleteVisualTimer() {
@@ -135,7 +148,7 @@
           // reset animation and start next song
           resetVisualTimer();
           $scope.timeRemaining = 30;
-          index++;
+          $scope.index++;
           checkGameRound();
         }
       }
@@ -144,9 +157,11 @@
       //retrieve allTracks from DataService
       $q.when(DataService.getTracks()).then((response) => {
         $scope.allTracks = response.data;
+        $scope.totalRounds = $scope.allTracks.length;
         console.log($scope.allTracks);
         playNext();
       });
     }
+
   }]);
 })(angular);

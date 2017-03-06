@@ -29,7 +29,12 @@
     }).state('GameParent.gameplay', {
       url: 'gameplay',
       templateUrl: 'gameplay.html',
-      controller: 'GameplayController as gameplayCtrl'
+      controller: 'GameplayController as gameplayCtrl',
+      onExit: function(DataService) {
+        if (DataService.playingSong) {
+          DataService.playingSong.pause();
+        }
+      }
     }).state('GameParent.leaderboard', {
       url: 'leaderboard',
       templateUrl: 'leaderboard.html',

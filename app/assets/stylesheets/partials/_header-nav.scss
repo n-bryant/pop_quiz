@@ -9,6 +9,15 @@ header {
     -webkit-animation: hueShift 10s infinite linear;
     font: 800 4rem $primaryFont;
     text-align: center;
+    @include bp(mobile) {
+      display: none;
+    };
+    @include bp(small){
+      display: none;
+    };
+    @include bp(medium) {
+      display: block;
+    }
   }
 }
 
@@ -17,7 +26,15 @@ header {
   width: 50%;
 
   .nav-list {
-    justify-content: space-around;
+    @include bp(mobile) {
+      justify-content: none;
+      // margin: 1% 5%;
+    }
+
+    @include bp(medium) {
+      justify-content: space-around;
+    }
+
   }
 
   .nav-button {

@@ -7,6 +7,13 @@
       $state.go('GameParent.login');
     }
 
+    function mutePage() {
+        var  audios = document.querySelectorAll("audio");
+
+        [].forEach.call(audios, function(audio) { muteMe(audio); });
+    }
+
+    mutePage();
     $scope.user = UserService.getActiveUser();
 
     $scope.rules1 = true;
