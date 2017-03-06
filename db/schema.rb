@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303190031) do
+ActiveRecord::Schema.define(version: 20170306133241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(version: 20170303190031) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "score",       default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "category_id"
-    t.index ["category_id"], name: "index_games_on_category_id", using: :btree
+    t.integer  "score",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_games_on_user_id", using: :btree
   end
 
@@ -39,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170303190031) do
     t.datetime "updated_at",  null: false
     t.string   "album_image"
     t.string   "album_name"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_tracks_on_category_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,6 +74,6 @@ ActiveRecord::Schema.define(version: 20170303190031) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
   end
 
-  add_foreign_key "games", "categories"
   add_foreign_key "games", "users"
+  add_foreign_key "tracks", "categories"
 end
