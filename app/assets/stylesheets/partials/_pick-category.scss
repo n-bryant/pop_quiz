@@ -20,12 +20,12 @@
     .category-item {
       border: 2px solid $light;
       cursor: pointer;
+      margin: 2rem;
       padding: 3rem 0;
       width: 200px;
 
       .category {
         font-size: 2rem;
-        text-transform: uppercase;
         width: 100%;
       }
 

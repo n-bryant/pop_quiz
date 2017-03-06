@@ -3,7 +3,7 @@
     <ul class="options-list is-flex">
       <!-- fill out lis with ng-repeat -->
       <li ng-repeat="category in allCategories" class="category-item is-centered" ng-click="setUserCategory(false, category.id)">
-        <div class="category {{category.name}}">{{category.name}}</div>
+        <div class="category {{category.name}}">'{{category.name}}s</div>
       </li>
       <li class="category-item is-centered" ng-click="setUserCategory(true)">
         <div class="category random is-centered">random</div>
@@ -16,10 +16,10 @@
       <div class="rules-selector" ng-class="{active: rules2}" ng-mouseover="rules2 = true; rules1 = false"></div>
     </div>
     <aside class="rules first" ng-class="{active: rules1}">
-      <p>This is a game that will test your knowledge of popular music, quotes, and historical facts.</p>
+      <p>This is a game that will test your knowledge of popular music throughout the decades.</p>
     </aside>
     <aside class="rules second" ng-class="{active: rules2}">
-      <p>Choose a category to get started, or click random if you are indecisive.</p>
+      <p>Choose a category to get started, or click random if you are feeling indecisive.</p>
     </aside>
   </section>
 </main>
