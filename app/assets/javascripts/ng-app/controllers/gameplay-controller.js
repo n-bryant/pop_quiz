@@ -7,6 +7,7 @@
       $state.go('GameParent.login');
     } else {
       $scope.user = UserService.getActiveUser();
+      console.log($scope.user);
 
       $scope.allTracks = [];
       $scope.userGuess = '';
@@ -41,7 +42,7 @@
 
     function calculateScore(guessStatus) {
       if (guessStatus) {
-        $scope.score += (2 * $scope.timeRemaining);
+        $scope.score += (4 * $scope.timeRemaining);
         console.log($scope.score);
       } else {
         $scope.score -= 30;
@@ -59,20 +60,21 @@
         storeGame($scope.user);
         $state.go('GameParent.leaderboard');
       } else {
+        currentTrack.pause();
+        resetVisualTimer();
+        $scope.timeRemaining = 30;
         playNext();
       }
     }
 
     function compare(arg1, arg2) {
       console.log(arg1, "and",  arg2);
-      currentTrack.pause();
       guessForm.reset();
       arg1 = arg1.toLowerCase();
       arg2 = arg2.toLowerCase();
       if (arg1 === arg2) {
         console.log('win');
         $scope.correctguesses++;
-        resetVisualTimer();
         index++;
         calculateScore(true);
       } else {
@@ -111,8 +113,6 @@
         let node = document.createElement('div');
         node.className += 'disappearing-bar';
         songBar.appendChild(node);
-
-        console.log('yo');
       }
 
       function resetVisualTimer() {
@@ -120,8 +120,12 @@
         replaceVisualTimer();
       }
 
-      function storeGame() {
-
+      function storeGame(user) {
+        $q.when(DataService.createGame(user)).then((response) => {
+          console.log(response);
+        }).catch((error) => {
+          console.log(error);
+        });
       }
 
       function trackTime() {
@@ -140,7 +144,8 @@
       //retrieve allTracks from DataService
       $q.when(DataService.getTracks()).then((response) => {
         $scope.allTracks = response.data;
-        shuffle($scope.allTracks);
+        console.log($scope.allTracks);
+        playNext();
       });
     }
   }]);
