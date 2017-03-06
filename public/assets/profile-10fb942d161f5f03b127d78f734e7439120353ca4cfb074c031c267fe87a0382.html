@@ -1,0 +1,42 @@
+<div class="profile-container is-flex">
+  <main class="user-profile">
+    <div class="user-avatar-container is-flex">
+      <button class="delete-btn" ng-click="delete(user)">Delete Profile</button>
+      <img src="{{user.image}}" alt="placeholder square">
+      <h2 class="container-heading">{{user.name}}</h2>
+    </div>
+    <button class="lets-play" ng-click="goPlay()">play</button>
+    <div class="profile-score-board">
+      <h3> Your Top Scores</h3>
+      <div class="user-scores">
+        <ul>
+          <li class="cell" ng-click="updateTable('game')">Game</li>
+          <li class="cell" ng-click="updateTable('score')">Score</li>
+        </ul>
+        <ul ng-repeat="game in userGames | orderBy: orderByField:'score'">
+          <li class="cell"> {{game.category.name}}</li>
+          <li class="cell"> {{game.score}}</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <aside class="social-aside">
+    <h2 class="container-heading">Community</h2>
+    <div class="logout-btn-container is-centered">
+      <button class="logout-btn" ng-click="logOut(user)">Logout</button>
+    </div>
+    <div class="social-container">
+      <!-- friend avatar -->
+      <p>Friend1 {{user.friend}}</p>
+      <ul ng-repeat="friend in allFriends">
+        <li>Status: {{friend.status}}</li>
+        <li>Last Login: {{friend.lastLogin}}</li>
+        <li>Top Score : 885{{friend.score[0]}}</li>
+        <form name="social-form" ng-submit="sendMessage(social-form.$viewValue)">
+          <input type=textarea placeholder="Write a message">
+          <input type=submit placeholder="Send">
+        </form>
+      </ul>
+    </div>
+  </aside>
+</div>

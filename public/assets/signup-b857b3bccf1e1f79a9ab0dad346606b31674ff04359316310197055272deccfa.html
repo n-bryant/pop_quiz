@@ -1,0 +1,20 @@
+<main class="acct-create-wrapper">
+  <section class="acct-create-container">
+    <div class="signup-title-container is-centered">
+      <h2>Sign Up!</h2>
+    </div>
+    <div class="signup-form-container">
+      <form name="signupForm" ng-submit="createNewUser()" class="signup-form is-flex" novalidate>
+        <label for="username"><input type="text" name="username" ng-model="username" required placeholder="username"></label>
+        <label for="name"><input type="text" name="name" ng-model="name" required placeholder="name"></label>
+        <label for="email"><input type="email" name="email" ng-model="email" required placeholder="email"></label>
+        <label for="password"><input type="password" name="password" ng-model="password" required placeholder="password"></label>
+        <label for="confirm"><input type="password" name="confirm" ng-model="confirm" required placeholder="confirm password"></label>
+        <button class="signup-submit" ng-disabled="signupForm.$invalid">Log In</button>
+        <div class="pwd-validation" ng-show="pwdsNotMatched">
+          <p>Passwords don't match!</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

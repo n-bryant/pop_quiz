@@ -1,0 +1,29 @@
+<main class="leaderboard-container">
+  <aside class="current-score-container is-centered">
+    <p>Your Score</p>
+    <h3 class="current-score">{{user.score}}</h3>
+  </aside>
+  <section class="leaderboard">
+    <div class="game-score-board">
+        <h3>{{this.game}}Music Top Scores</h3>
+        <table class="user-scores">
+          <thead>
+            <tr>
+              <th class="rank">Rank</td>
+              <th class="category">Category</td>
+              <th class="cell" label='user' ng-click="updateTable('user')">User</td>
+              <th class="cell" label='score' ng-click="updateTable('score')">Score</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="game in gameData | orderBy: orderByField:'score'">
+              <td class="rank">{{game.rank}}</td>
+              <td class="cell">{{game.category}}</td>
+              <td class="cell">{{game.user.username}}</td>
+              <td class="cell">{{game.score}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </section>
+</main>

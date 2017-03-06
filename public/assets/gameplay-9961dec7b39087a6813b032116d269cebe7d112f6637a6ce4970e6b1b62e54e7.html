@@ -1,0 +1,30 @@
+<main class="pick-category-wrapper wrapper">
+  <section class="song-container">
+    <h1>Guess the Artist!</h1>
+    <div class='truth'>Great Job!</div>
+    <div class="song-bar">
+      <div class="disappearing-bar">
+      </div>
+    </div>
+    <div class='lies'>No points for you!</div>
+  </section>
+  <aside class="incorrect">
+    <p><span class="update"> {{incorrectguesses}} </span>  incorrect guesses</p>
+  </aside>
+  <aside class="correct">
+    <p><span class="update"> {{correctguesses}} </span>   correct guesses</p>
+  </aside>
+  <section class="guess-container is-centered ">
+    <div class="user-guess">
+      <form class="guess-form is-flex" ng-submit="guess($value)">
+        <input class="text-guess is-centered" type=text autofocus>
+        <input class="guess-button" type=submit value="Guess!">
+      </form>
+      <span class="round-tracker">Round: {{index + 1}}/{{totalRounds}}</span>
+    </div>
+    <div class="score-container is-flex">
+      <span class="time">Time Remaining: {{timeRemaining}}s</span>
+      <span class="score">Score: {{score}}</span>
+    </div>
+  </section>
+</main>
