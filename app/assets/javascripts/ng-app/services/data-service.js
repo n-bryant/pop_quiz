@@ -2,14 +2,12 @@
   "use strict";
 
   ng.module('GameApp').service('DataService', ['$http', function($http) {
-    // 'https://lit-thicket-50639.herokuapp.com/'
-    const baseUrl = 'http://localhost:3000/';
     this.playingSong = null;
 
     function createGame(user) {
       return $http ({
         method: 'POST',
-        url: `${baseUrl}games`,
+        url: '/games',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
@@ -24,7 +22,7 @@
     function createUser(newUser) {
       return $http ({
         method: 'POST',
-        url: `${baseUrl}auth`,
+        url: '/auth',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
@@ -42,7 +40,7 @@
       console.log(user);
       return $http ({
         method: 'DELETE',
-        url: `${baseUrl}auth`,
+        url: '/auth',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
@@ -57,42 +55,42 @@
     function getTracks() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}tracks`
+        url: '/tracks'
       });
     }
 
     function getCategories() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}categories`
+        url: '/categories'
       });
     }
 
     function getUsers() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}users`
+        url: '/users'
       });
     }
 
     function getGames() {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}games`
+        url: '/games'
       });
     }
 
     function getUserById(userId) {
       return $http ({
         method: 'GET',
-        url: `${baseUrl}users/${userId}`
+        url: `/users/${userId}`
       });
     }
 
     function logInUser(user) {
       return $http ({
         method: 'POST',
-        url: `${baseUrl}auth/sign_in`,
+        url: '/auth/sign_in',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
@@ -106,7 +104,7 @@
     function logOutUser(user) {
       return $http ({
         method: 'DELETE',
-        url: `${baseUrl}auth/sign_out`,
+        url: '/auth/sign_out',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
