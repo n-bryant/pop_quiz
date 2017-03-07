@@ -1,0 +1,28 @@
+<div class="profile-container is-flex">
+  <main class="user-profile">
+    <button class="lets-play" ng-click="goPlay()">play</button>
+    <div class="user-avatar-container is-flex">
+      <img src="{{user.image}}" alt="placeholder square">
+      <div class="acct-actions-container is-centered">
+        <h2 class="container-heading">{{user.name}}</h2>
+        <div class="btns-container">
+          <button class="logout-btn" ng-click="logOut(user)">Logout</button>
+          <button class="delete-btn" ng-click="delete(user)">Delete Profile</button>
+        </div>
+      </div>
+    </div>
+    <div class="profile-score-board">
+      <h3> Your Top Scores</h3>
+      <div class="user-scores">
+        <ul>
+          <li class="cell" ng-click="updateTable('game')">Game</li>
+          <li class="cell" ng-click="updateTable('score')">Score</li>
+        </ul>
+        <ul ng-repeat="game in userGames | orderBy: orderByField:'score'">
+          <li class="cell"> {{game.category.name}}</li>
+          <li class="cell"> {{game.score}}</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
