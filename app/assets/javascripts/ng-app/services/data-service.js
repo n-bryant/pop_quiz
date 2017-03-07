@@ -13,11 +13,12 @@
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
-        data: JSON.stringify({
-          user_id: user.id,
-          score: user.score,
-          category_id: user.category
-        })
+        data: {
+          game: {
+            user_id: user.id,
+            score: user.score
+          }
+        }
       });
     }
 

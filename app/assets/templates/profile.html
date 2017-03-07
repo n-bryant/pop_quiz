@@ -1,11 +1,16 @@
 <div class="profile-container is-flex">
   <main class="user-profile">
-    <div class="user-avatar-container is-flex">
-      <button class="delete-btn" ng-click="delete(user)">Delete Profile</button>
-      <img src="{{user.image}}" alt="placeholder square">
-      <h2 class="container-heading">{{user.name}}</h2>
-    </div>
     <button class="lets-play" ng-click="goPlay()">play</button>
+    <div class="user-avatar-container is-flex">
+      <img src="{{user.image}}" alt="placeholder square">
+      <div class="acct-actions-container is-centered">
+        <h2 class="container-heading">{{user.name}}</h2>
+        <div class="btns-container">
+          <button class="logout-btn" ng-click="logOut(user)">Logout</button>
+          <button class="delete-btn" ng-click="delete(user)">Delete Profile</button>
+        </div>
+      </div>
+    </div>
     <div class="profile-score-board">
       <h3> Your Top Scores</h3>
       <div class="user-scores">
@@ -20,23 +25,4 @@
       </div>
     </div>
   </main>
-  <aside class="social-aside">
-    <h2 class="container-heading">Community</h2>
-    <div class="logout-btn-container is-centered">
-      <button class="logout-btn" ng-click="logOut(user)">Logout</button>
-    </div>
-    <div class="social-container">
-      <!-- friend avatar -->
-      <p>Friend1 {{user.friend}}</p>
-      <ul ng-repeat="friend in allFriends">
-        <li>Status: {{friend.status}}</li>
-        <li>Last Login: {{friend.lastLogin}}</li>
-        <li>Top Score : 885{{friend.score[0]}}</li>
-        <form name="social-form" ng-submit="sendMessage(social-form.$viewValue)">
-          <input type=textarea placeholder="Write a message">
-          <input type=submit placeholder="Send">
-        </form>
-      </ul>
-    </div>
-  </aside>
 </div>
