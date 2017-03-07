@@ -41,6 +41,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:user_id, :score, :category_id)
+    params.require(:game).permit(:user_id, :score)
   end
 end
