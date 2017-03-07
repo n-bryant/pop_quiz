@@ -6,7 +6,7 @@
       @media screen and (min-width: 550px) { @content; }
     }
     @if $point == medium {
-        @media screen and (min-width: 670px) { @content; }
+        @media screen and (min-width: 700px) { @content; }
     }
     @else if $point == large {
         @media screen and (min-width: 820px) { @content; }

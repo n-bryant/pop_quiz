@@ -1,5 +1,12 @@
 .wrapper {
   overflow: hidden;
+  @include bp(mobile) {
+    padding: .5rem;
+  }
+  @include bp(medium) {
+    padding: 3rem;
+  }
+
 }
 //
 .truth, .lies {
@@ -20,32 +27,60 @@
 }
 
 .incorrect {
-  float: left;
-  margin-left: 10%;
+
+  @include bp(mobile) {
+    display: none;
+  }
+
+  @include bp(medium) {
+    display: inline-block;
+    float: left;
+    margin-left: 10%;
+  }
+
 }
 
 .correct {
-  float: right;
-  margin-right: 10%;
-}
-.song-container {
-  margin: 2% auto;
-
-  width: 60%;
-
-  h1 {
-    color: $orangeHi;
-    font-size: 2.25rem;
-    text-transform: uppercase;
-    text-align: center;
+  @include bp(mobile) {
+    display: none;
   }
 
-.song-bar {
-    border: 3px solid $light;
-    border-radius: 20px;
-    height: 40px;
+  @include bp(medium) {
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+  }
+}
+.song-container {
+
+  @include bp(medium) {
+    width: 100%;
+    margin: 1% auto;
+  }
+
+  @include bp(medium) {
     margin: 2% auto;
-    width: 70%;
+    width: 60%;
+  }
+
+  h1 {
+      color: $orangeHi;
+      font-size: 2.25rem;
+      text-transform: uppercase;
+      text-align: center;
+  }
+
+  .song-bar {
+    @include bp(mobile) {
+      border: 3px solid $light;
+      border-radius: 20px;
+      height: 40px;
+      margin: 2% auto;
+      width: 80%;
+    }
+    @include bp(medium) {
+      width: 70%;
+    }
 
     .disappearing-bar {
       color: transparent;
@@ -53,7 +88,7 @@
       background-color: $light;
       border-radius: 20px;
       height: 100%;
-      width: 99%;
+      width: 98%;
     }
 
     @keyframes move {
@@ -70,9 +105,16 @@
 .user-guess {
 
   form {
-    flex-direction: column;
-    margin: 2% auto;
-    width: 70%;
+    @include bp(mobile){
+      flex-direction: column;
+      margin: 2% auto;
+      width: 90%;
+    }
+    @include bp(medium){
+      flex-direction: column;
+      margin: 2% auto;
+      width: 70%;
+    }
 
     .text-guess, .guess-button {
       background: transparent;
@@ -106,7 +148,13 @@
 }
 
 .score-container {
-  justify-content: space-around;
-  margin: 0 auto;
-  width: 50%;
+  @include bp(mobile){
+    display: none;
+  }
+  @include bp(medium){
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 50%;
+  }
 }
