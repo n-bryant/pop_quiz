@@ -17,8 +17,8 @@
           </thead>
           <tbody>
             <tr ng-repeat="game in gameData | orderBy: orderByField:'score'">
-              <td class="rank">{{game.rank}}</td>
-              <td class="cell">{{game.category}}</td>
+              <td class="rank">{{$index + 1}}</td>
+              <td class="cell">{{game.id}}</td>
               <td class="cell">{{game.user.username}}</td>
               <td class="cell">{{game.score}}</td>
             </tr>

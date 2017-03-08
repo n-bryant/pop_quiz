@@ -147,6 +147,8 @@
         if ($scope.timeRemaining === 0) {
           // reset animation and start next song
           resetVisualTimer();
+          guessEval(false);
+          $scope.incorrectguesses++;
           $scope.timeRemaining = 30;
           $scope.index++;
           checkGameRound();

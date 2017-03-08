@@ -16,6 +16,7 @@
     $scope.userGames = [];
     // fetch the user's game data
     $q.when(DataService.games()).then((response) => {
+      console.log(response.data);
       for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].user.id === $scope.user.id) {
           $scope.userGames.push(response.data[i]);
@@ -38,7 +39,6 @@
     //updateTable to sort by score or username
     $scope.updateTable = function(label) {
         $scope.orderByField = label;
-        console.log(label);
     };
 
     $scope.logOut = function(user) {
@@ -47,7 +47,6 @@
     }
     $scope.delete = function(user) {
       $q.when(DataService.delete(user)).then((response) => {
-        console.log(response);
         $state.go('GameParent.login');
       });
     }

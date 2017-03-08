@@ -1,6 +1,7 @@
 header {
   background-color: $slate;
-  padding: 2rem;
+  padding: 1rem;
+  width: 100%;
   h1 {
     background-image: -webkit-linear-gradient(92deg, $orange, $orangeHi);
     color: $orange;
@@ -22,13 +23,12 @@ header {
 }
 
 .header-nav {
-  margin: 1rem auto 0 auto;
   width: 50%;
+  margin: 1% auto;
 
   .nav-list {
     @include bp(mobile) {
-      justify-content: none;
-      // margin: 1% 5%;
+      justify-content: center;
     }
 
     @include bp(medium) {
@@ -38,9 +38,21 @@ header {
   }
 
   .nav-button {
-    color: $light;
-    font-size: 1rem;
-    text-decoration: none;
+    @include bp(mobile) {
+      color: $light;
+      font-size: 1rem;
+      margin: 0 .5%;
+      padding: .5rem;
+      text-decoration: none;
+      width: 70%;
+    }
+    @include bp(medium) {
+      color: $light;
+      font-size: 1rem;
+      padding: .5rem;
+      text-decoration: none;
+      width: 100%;
+    }
 
     &:hover {
       text-decoration: underline;

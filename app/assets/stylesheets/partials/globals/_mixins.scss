@@ -1,6 +1,6 @@
 @mixin bp($point) {
     @if $point == mobile {
-      @media screen and (min-width: 320px) { @content; }
+      @media screen and (min-width: 400px) { @content; }
     }
     @if $point == small {
       @media screen and (min-width: 550px) { @content; }
@@ -9,9 +9,9 @@
         @media screen and (min-width: 700px) { @content; }
     }
     @else if $point == large {
-        @media screen and (min-width: 820px) { @content; }
+      @media screen and (min-width: 820px) { @content; }
     }
     @else if $point == full {
-        @media screen and (min-width: 1220px) { @content; }
+      @media screen and (min-width: 1220px) { @content; }
     }
 }

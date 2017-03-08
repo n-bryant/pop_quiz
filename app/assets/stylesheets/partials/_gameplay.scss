@@ -134,14 +134,20 @@
     }
 
     .guess-button {
-      background-color: $orangeHi;
-      border: none;
-      border-radius: 25px;
-      color: $slate;
-      cursor: pointer;
-      font-size: 1rem;
-      margin: 2% auto;
-      width: 20%;
+      @include bp(mobile) {
+        background-color: $orangeHi;
+        border: none;
+        border-radius: 25px;
+        color: $slate;
+        cursor: pointer;
+        font-size: 2rem;
+        margin: 2% auto;
+        width: 50%;
+      }
+      @include bp(medium) {
+        font-size: 1.5rem;
+        width: 30%;
+      }
     }
 
   }

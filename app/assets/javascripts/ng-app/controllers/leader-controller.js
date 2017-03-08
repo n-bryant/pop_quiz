@@ -6,6 +6,7 @@
     if (!$scope.session) {
       $state.go('GameParent.login');
     }
+    $scope.count = 0;
 
     $scope.user = UserService.getActiveUser();
 

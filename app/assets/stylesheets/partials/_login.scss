@@ -5,13 +5,23 @@
 }
 
 .login-container, .acct-create-container {
-  animation: bounceInUp 1s ease;
-  margin: 0 auto;
-  max-width: 600px;
-  min-width: 450px;
-  padding-top: 3rem;
-  width: 40%;
-
+  @include bp(mobile) {
+    animation: bounceInUp 1s ease;
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 300px;
+    padding-top: 3rem;
+    width: 110%;
+  }
+  @include bp(small) {
+    width: 80%;
+  }
+  @include bp(medium) {
+    width: 65%;
+  }
+  @include bp(large) {
+    width: 40%;
+  }
   .login-submit, .signup-submit, .create-acct-btn, input {
     animation: hueShift 10s infinite linear;
   }
@@ -27,6 +37,7 @@
 
 .login-form-container, .signup-form-container {
   padding: 0 1rem 2rem 1rem;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -35,6 +46,7 @@
   border-radius: .5rem;
   flex-direction: column;
   padding: 2rem;
+
 
   label {
     margin-bottom: 1rem;
